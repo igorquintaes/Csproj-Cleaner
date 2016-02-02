@@ -2,15 +2,8 @@
 {
     partial class Form1
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.projDir = new System.Windows.Forms.TextBox();
@@ -44,7 +33,7 @@
             this.projDir.Name = "projDir";
             this.projDir.Size = new System.Drawing.Size(510, 20);
             this.projDir.TabIndex = 0;
-            this.projDir.TextChanged += new System.EventHandler(this.projDir_TextChanged);
+            this.projDir.TextChanged += new System.EventHandler(this.ProjDirTextChanged);
             // 
             // label1
             // 
@@ -54,7 +43,7 @@
             this.label1.Size = new System.Drawing.Size(223, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Diretório da pasta de armazenamento de logs:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.Label1Click);
             // 
             // label2
             // 
@@ -64,7 +53,7 @@
             this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Procedimentos:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Click += new System.EventHandler(this.Label2Click);
             // 
             // label3
             // 
@@ -73,9 +62,8 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(506, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Insira um diretório válido para que todos os arquivos csproj dentro dele ou de su" +
-    "as subpastas sejam limpos";
-            this.label3.Click += new System.EventHandler(this.label2_Click);
+            this.label3.Text = "Insira um diretório válido para que todos os arquivos csproj dentro dele ou de suas subpastas sejam limpos.";
+            this.label3.Click += new System.EventHandler(this.Label2Click);
             // 
             // label4
             // 
@@ -85,7 +73,7 @@
             this.label4.Size = new System.Drawing.Size(329, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "A limpeza iniciará assim que o botão \"Executar Limpeza\" for clicado.";
-            this.label4.Click += new System.EventHandler(this.label2_Click);
+            this.label4.Click += new System.EventHandler(this.Label2Click);
             // 
             // CleanButton
             // 
@@ -95,7 +83,7 @@
             this.CleanButton.TabIndex = 3;
             this.CleanButton.Text = "Executar Limpeza";
             this.CleanButton.UseVisualStyleBackColor = true;
-            this.CleanButton.Click += new System.EventHandler(this.button1_Click);
+            this.CleanButton.Click += new System.EventHandler(this.Button1Click);
             // 
             // logDir
             // 
@@ -112,7 +100,7 @@
             this.label5.Size = new System.Drawing.Size(142, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Diretório da pasta de .csproj:";
-            this.label5.Click += new System.EventHandler(this.label1_Click);
+            this.label5.Click += new System.EventHandler(this.Label1Click);
             // 
             // Form1
             // 
@@ -130,7 +118,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Csproj Cleaner";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Form1Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

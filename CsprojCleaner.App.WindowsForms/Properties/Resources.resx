@@ -114,4 +114,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ErrorExceptionVerifyLog">
+    <value xml:space="preserve">Erro (Exception). Verifique o log.</value>
+  </data>
+  <data name="ErrorFolderExceptionVerifyLog">
+    <value xml:space="preserve">Erro (FolderException). Verifique o log. </value>
+  </data>
+  <data name="ErrorLogExceptionInitialize">
+    <value xml:space="preserve">Erro ao instanciar log de erros: </value>
+  </data>
+  <data name="FinishedClickToRunAgain">
+    <value xml:space="preserve">Concluído! Clique para executar de novo</value>
+  </data>
+  <data name="Loading...">
+    <value xml:space="preserve">Aguarde...</value>
+  </data>
 </root>
