@@ -1,6 +1,0 @@
-C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner.Core\obj\Debug\CsprojCleaner.Core.csprojResolveAssemblyReference.cache
-C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner.Core\bin\Debug\CsprojCleaner.Core.dll.config
-C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner.Core\bin\Debug\CsprojCleaner.Core.dll
-C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner.Core\bin\Debug\CsprojCleaner.Core.pdb
-C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner.Core\obj\Debug\CsprojCleaner.Core.dll
-C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner.Core\obj\Debug\CsprojCleaner.Core.pdb
