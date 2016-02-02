@@ -1,0 +1,6 @@
+c:\users\igor quintaes\documents\visual studio 2012\Projects\CsprojCleaner\CsprojCleaner\bin\Debug\CsprojCleaner.exe.config
+c:\users\igor quintaes\documents\visual studio 2012\Projects\CsprojCleaner\CsprojCleaner\bin\Debug\CsprojCleaner.exe
+c:\users\igor quintaes\documents\visual studio 2012\Projects\CsprojCleaner\CsprojCleaner\bin\Debug\CsprojCleaner.pdb
+c:\users\igor quintaes\documents\visual studio 2012\Projects\CsprojCleaner\CsprojCleaner\obj\Debug\CsprojCleaner.csprojResolveAssemblyReference.cache
+c:\users\igor quintaes\documents\visual studio 2012\Projects\CsprojCleaner\CsprojCleaner\obj\Debug\CsprojCleaner.exe
+c:\users\igor quintaes\documents\visual studio 2012\Projects\CsprojCleaner\CsprojCleaner\obj\Debug\CsprojCleaner.pdb
