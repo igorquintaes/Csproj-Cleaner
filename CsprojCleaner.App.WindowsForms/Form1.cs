@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using CsprojCleaner.App.WindowsForms.Properties;
 using CsprojCleaner.Core.Exceptions;
@@ -9,10 +11,16 @@ namespace CsprojCleaner.App.WindowsForms
 {
     public partial class Form1 : Form
     {
+        private int _countItems;
+        private int _countLoop;
+
         public Form1()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            _countItems = 0;
+            _countLoop = 0;
         }
 
         private void Label1Click(object sender, EventArgs e)
@@ -29,7 +37,7 @@ namespace CsprojCleaner.App.WindowsForms
         {
             if (String.IsNullOrEmpty(projDir.Text) || String.IsNullOrEmpty(logDir.Text))
             {
-                MessageBox.Show(Resources.VerifyAllDirWasFilled);
+                MessageBox.Show(Resources.VerifyAllDirWasFilled , Resources.Warning_);
                 return;
             }
 
@@ -37,12 +45,8 @@ namespace CsprojCleaner.App.WindowsForms
             {
                 CleanButton.Text = Resources.Loading___;
 
-                LogService.InitializeLog(logDir.Text);
-
-                var files = FolderService.GetAllCsprojPathFromAFolder(projDir.Text).ToList();
-                files.ForEach(CsprojService.Clean);
-
-                CleanButton.Text = Resources.FinishedClickToRunAgain;
+                var t = new Thread(ThreadClean) { IsBackground = true };
+                t.Start();
             }
             catch (LogException)
             {
@@ -58,6 +62,8 @@ namespace CsprojCleaner.App.WindowsForms
                 CleanButton.Text = Resources.ErrorExceptionVerifyLog;
                 LogService.WriteError(ex.Message);
             }
+
+            CleanButton.Enabled = true;
         }
 
         private void Form1Load(object sender, EventArgs e)
@@ -88,6 +94,79 @@ namespace CsprojCleaner.App.WindowsForms
 
         private void FolderBrowserDialog1HelpRequest(object sender, EventArgs e)
         { 
+
+        }
+
+        void ThreadClean()
+        {
+            var updateCounterDelegate = new MethodInvoker(UpdateCount);
+
+            lock (stateLock)
+            {
+                currentCount = 0;
+                CleanButton.Enabled = false;
+            }
+            Invoke(updateCounterDelegate);
+
+            lock (stateLock)
+            {
+                LogService.InitializeLog(logDir.Text);
+                currentCount = 5;
+            }
+            Invoke(updateCounterDelegate);
+            Thread.Sleep(500);
+
+            List<string> files;
+            lock (stateLock)
+            {
+                files = FolderService.GetAllCsprojPathFromAFolder(projDir.Text).ToList();
+                _countItems = files.Count;
+                currentCount = 10;
+            }
+
+            foreach (var t in files)
+            {
+                lock (stateLock)
+                {
+                    CsprojService.Clean(t);
+                    _countLoop++;
+                }
+
+                Invoke(updateCounterDelegate);
+            }
+
+            Invoke(new MethodInvoker(Finish));
+        }
+
+        void UpdateCount()
+        {
+            lock (stateLock)
+            {
+                int tmpCount;
+                if (_countItems <= 0 || _countLoop <= 0)
+                {
+                    tmpCount = currentCount;
+                }
+                else
+                {
+                    var value = (double)currentCount + (double)_countLoop / (double)_countItems * (double)(100 - currentCount);
+                    tmpCount = Convert.ToInt32(value);
+                }
+
+                progressBar1.Value = tmpCount;
+            }
+        }
+
+        void Finish()
+        {
+            CleanButton.Enabled = true;
+            CleanButton.Text = Resources.FinishedClickToRunAgain;
+            progressBar1.Value = 100;
+        }
+
+        private void ProgressBar1Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

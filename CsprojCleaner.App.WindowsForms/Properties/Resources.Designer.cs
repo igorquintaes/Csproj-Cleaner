@@ -132,5 +132,14 @@ namespace CsprojCleaner.App.WindowsForms.Properties {
                 return ResourceManager.GetString("VerifyAllDirWasFilled", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Atenção!.
+        /// </summary>
+        internal static string Warning_ {
+            get {
+                return ResourceManager.GetString("Warning!", resourceCulture);
+            }
+        }
     }
 }

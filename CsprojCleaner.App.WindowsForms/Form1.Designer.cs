@@ -30,6 +30,7 @@
             this.LoadLogButton = new System.Windows.Forms.Button();
             this.FolderCsproj = new System.Windows.Forms.FolderBrowserDialog();
             this.FolderLog = new System.Windows.Forms.FolderBrowserDialog();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(9, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 13);
@@ -112,9 +114,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.eguru_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(398, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(398, 47);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 113);
+            this.pictureBox1.Size = new System.Drawing.Size(120, 111);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
@@ -142,11 +144,20 @@
             // 
             this.FolderCsproj.HelpRequest += new System.EventHandler(this.FolderBrowserDialog1HelpRequest);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(398, 178);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(120, 23);
+            this.progressBar1.TabIndex = 6;
+            this.progressBar1.Click += new System.EventHandler(this.ProgressBar1Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 213);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.LoadLogButton);
             this.Controls.Add(this.LoadCsprojButton);
             this.Controls.Add(this.pictureBox1);
@@ -183,6 +194,10 @@
         private System.Windows.Forms.Button LoadLogButton;
         private System.Windows.Forms.FolderBrowserDialog FolderCsproj;
         private System.Windows.Forms.FolderBrowserDialog FolderLog;
+
+        readonly object stateLock = new object();
+        int currentCount;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

@@ -142,4 +142,7 @@
   <data name="csprojFormat">
     <value xml:space="preserve">Project Files|*.csproj</value>
   </data>
+  <data name="Warning!">
+    <value xml:space="preserve">Atenção!</value>
+  </data>
 </root>
