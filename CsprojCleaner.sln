@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsprojCleaner", "CsprojCleaner\CsprojCleaner.csproj", "{4314C98F-C01E-4A76-BC31-9CD356879585}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsprojCleaner.App.Console", "CsprojCleaner\CsprojCleaner.App.Console.csproj", "{4314C98F-C01E-4A76-BC31-9CD356879585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsprojCleaner.Core", "CsprojCleaner.Core\CsprojCleaner.Core.csproj", "{A30E2702-789D-4C0F-AB10-949DC2409C26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsprojCleaner.App.WindowsForms", "CsprojCleaner.App.WindowsForms\CsprojCleaner.App.WindowsForms.csproj", "{BE1BC3B1-1C88-4352-962B-0424D17BEFF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,14 @@ Global
 		{4314C98F-C01E-4A76-BC31-9CD356879585}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4314C98F-C01E-4A76-BC31-9CD356879585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4314C98F-C01E-4A76-BC31-9CD356879585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30E2702-789D-4C0F-AB10-949DC2409C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30E2702-789D-4C0F-AB10-949DC2409C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30E2702-789D-4C0F-AB10-949DC2409C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30E2702-789D-4C0F-AB10-949DC2409C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE1BC3B1-1C88-4352-962B-0424D17BEFF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE1BC3B1-1C88-4352-962B-0424D17BEFF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE1BC3B1-1C88-4352-962B-0424D17BEFF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE1BC3B1-1C88-4352-962B-0424D17BEFF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

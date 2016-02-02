@@ -1,19 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
 using System.Linq;
-using CsprojCleaner.Services;
-using Microsoft.Build.BuildEngine;
+using CsprojCleaner.Core.Exceptions;
+using CsprojCleaner.Core.Services;
 
-namespace CsprojCleaner
+namespace CsprojCleaner.App.Console
 {
     class Program
     {
         static void Main()
         {
-            var files = FolderService.GetAllCsprojPathFromAFolder(ConfigurationManager.AppSettings["FolderPath"]).ToList();
-            files.ForEach(CsprojService.Clean);
+            try
+            {
+                LogService.InitializeLog(ConfigurationManager.AppSettings["LogPath"]);
+
+                var files = FolderService.GetAllCsprojPathFromAFolder(ConfigurationManager.AppSettings["FolderPath"]).ToList();
+                files.ForEach(CsprojService.Clean);
+            }
+            catch (LogException)
+            {
+                System.Console.WriteLine("Erro ao instanciar log de erros: " + LogService.ConsoleLog);
+            }
+            catch (FolderException)
+            {
+                System.Console.WriteLine("Erro no directório de .csproj: " + LogService.ConsoleLog);
+                LogService.WriteError(LogService.ConsoleLog);
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("Erro: " + e.Message);
+                LogService.WriteError(e.Message);
+            }
+            finally
+            {
+                System.Console.ReadKey();
+            }
         }
     }
 }

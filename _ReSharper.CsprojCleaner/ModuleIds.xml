@@ -1,3 +1,5 @@
 <Modules>
   <Module PersistentId="4314C98F-C01E-4A76-BC31-9CD356879585" ModuleId="CsprojCleaner" />
+  <Module PersistentId="A30E2702-789D-4C0F-AB10-949DC2409C26" ModuleId="CsprojCleaner.Core" />
+  <Module PersistentId="BE1BC3B1-1C88-4352-962B-0424D17BEFF9" ModuleId="CsprojCleaner.App.WindowsForms" />
 </Modules>

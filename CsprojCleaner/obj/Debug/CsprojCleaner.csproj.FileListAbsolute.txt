@@ -7,3 +7,4 @@ c:\users\igor quintaes\documents\visual studio 2012\Projects\CsprojCleaner\Cspro
 C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner\bin\Debug\CsprojCleaner.exe.config
 C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner\obj\Debug\CsprojCleaner.exe
 C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner\obj\Debug\CsprojCleaner.pdb
+C:\Users\Igor Quintaes\Projetos\Csproj-Cleaner\CsprojCleaner\bin\Debug\CsprojCleaner.App.Console.exe.config

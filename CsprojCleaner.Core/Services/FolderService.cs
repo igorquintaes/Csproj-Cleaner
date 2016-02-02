@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CsprojCleaner.Core.Exceptions;
 
-namespace CsprojCleaner.Services
+namespace CsprojCleaner.Core.Services
 {
     public class FolderService
     {
@@ -30,10 +31,9 @@ namespace CsprojCleaner.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                return null;
+                LogService.ConsoleLog = e.Message;
+                throw new FolderException();
             }
-            
         }
     }
 }

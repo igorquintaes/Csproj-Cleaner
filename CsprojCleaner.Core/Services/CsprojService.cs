@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Build.BuildEngine;
 
-namespace CsprojCleaner.Services
+namespace CsprojCleaner.Core.Services
 {
     public class CsprojService
     {
@@ -17,7 +14,7 @@ namespace CsprojCleaner.Services
             {
                 BeforeClean();
                 
-                Console.WriteLine("Arquivo: " + file);
+                LogService.WriteStatus("Arquivo: " + file);
 
                 var engine = new Engine(Environment.CurrentDirectory);
                 var csproj = new Project(engine);
@@ -57,20 +54,19 @@ namespace CsprojCleaner.Services
             }
             catch (UnauthorizedAccessException uaEx)
             {
-                Console.WriteLine(uaEx.Message);
+                LogService.WriteError(uaEx.Message);
             }
             catch (PathTooLongException pathEx)
             {
-                Console.WriteLine(pathEx.Message);
+                LogService.WriteError(pathEx.Message);
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                LogService.WriteError(e.Message);
             }
             finally
             {
-                Console.WriteLine("Pressione uma tecla para continuar...");
-                Console.ReadKey();
+                AfterClean();
             }
         }
 
@@ -87,8 +83,7 @@ namespace CsprojCleaner.Services
             }
             catch (IOException)
             {
-                Console.WriteLine("Erro ao atualizar o arquivo " + fullPath);
-                Console.WriteLine(String.Empty);
+                LogService.WriteError("Erro ao atualizar o arquivo " + fullPath);
             }
         }
 
@@ -96,13 +91,13 @@ namespace CsprojCleaner.Services
         {
             if (countDuplicated == 0)
             {
-                Console.WriteLine("Não foram encontrados itens duplicados");
-                Console.WriteLine(String.Empty);
+                LogService.WriteStatus("Não foram encontrados itens duplicados");
+                LogService.WriteStatus(String.Empty);
                 return false;
             }
 
-            Console.WriteLine("Foram encontrados {0} itens duplicados.", countDuplicated);
-            Console.WriteLine(String.Empty);
+            LogService.WriteStatus(String.Format("Foram encontrados {0} itens duplicados.", countDuplicated));
+            LogService.WriteStatus(String.Empty);
             return true;
         }
 
@@ -110,9 +105,14 @@ namespace CsprojCleaner.Services
 
         private static void BeforeClean()
         {
-            Console.WriteLine(String.Empty);
-            Console.WriteLine("Preparando-se para executar a limpeza...");
-            Console.WriteLine(String.Empty);
+            LogService.WriteStatus(String.Empty);
+            LogService.WriteStatus("Preparando-se para executar a limpeza...");
+            LogService.WriteStatus(String.Empty);
+        }
+
+        private static void AfterClean()
+        {
+            LogService.WriteStatus("Limpeza executada com sucesso.");
         }
     }
 }
