@@ -47,7 +47,7 @@ namespace CsprojCleaner.Core.Services
             if (string.IsNullOrEmpty(LogStatus)) throw new Exception("Path de log inválido.");
 
             var file = new StreamWriter(LogStatus, true);
-            file.WriteLine(lines);
+            file.WriteLine(String.IsNullOrEmpty(lines) ? String.Empty : DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + " " + lines);
             file.Close();
         }
 
@@ -56,7 +56,7 @@ namespace CsprojCleaner.Core.Services
             if (string.IsNullOrEmpty(LogError)) throw new Exception("Path de log inválido.");
 
             var file = new StreamWriter(LogError, true);
-            file.WriteLine(lines);
+            file.WriteLine(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + " " + lines);
             file.WriteLine(String.Empty);
             file.Close();
         }

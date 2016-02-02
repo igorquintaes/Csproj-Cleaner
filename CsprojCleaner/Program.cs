@@ -12,6 +12,7 @@ namespace CsprojCleaner.App.Console
         {
             try
             {
+                System.Console.WriteLine("Iniciando Limpeza...");
                 LogService.InitializeLog(ConfigurationManager.AppSettings["LogPath"]);
 
                 var files = FolderService.GetAllCsprojPathFromAFolder(ConfigurationManager.AppSettings["FolderPath"]).ToList();
@@ -33,6 +34,8 @@ namespace CsprojCleaner.App.Console
             }
             finally
             {
+                System.Console.WriteLine("Verifique o diretório de Logs para maiores informações.");
+                System.Console.WriteLine("Limpeza Concluída.");
                 System.Console.ReadKey();
             }
         }

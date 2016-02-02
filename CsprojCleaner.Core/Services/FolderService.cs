@@ -21,12 +21,11 @@ namespace CsprojCleaner.Core.Services
 
                 if (!files.Any())
                 {
-                    Console.WriteLine("Não foram encontrados arquivos .csproj no caminho especificado.");
-                    Console.ReadKey();
+                    LogService.WriteStatus("Não foram encontrados arquivos .csproj no caminho especificado.");
                     return new List<string>();
                 }
 
-                files.ForEach(x => Console.WriteLine("Arquivo encontrado: {0}", x));
+                files.ForEach(x => LogService.WriteStatus(String.Format("Arquivo encontrado: {0}", x)));
                 return files;
             }
             catch (Exception e)
