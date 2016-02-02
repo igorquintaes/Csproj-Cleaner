@@ -12,6 +12,7 @@ namespace CsprojCleaner.App.WindowsForms
         public Form1()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -28,11 +29,14 @@ namespace CsprojCleaner.App.WindowsForms
         {
             try
             {
-                CleanButton.Text = "Executar Limpeza";
+                CleanButton.Text = "Aguarde...";
+
                 LogService.InitializeLog(logDir.Text);
 
-                var files = FolderService.GetAllCsprojPathFromAFolder(ConfigurationManager.AppSettings["FolderPath"]).ToList();
+                var files = FolderService.GetAllCsprojPathFromAFolder(projDir.Text).ToList();
                 files.ForEach(CsprojService.Clean);
+
+                CleanButton.Text = "Concluído! Clique para executar de novo";
             }
             catch (LogException)
             {
@@ -51,6 +55,11 @@ namespace CsprojCleaner.App.WindowsForms
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void projDir_TextChanged(object sender, EventArgs e)
         {
 
         }

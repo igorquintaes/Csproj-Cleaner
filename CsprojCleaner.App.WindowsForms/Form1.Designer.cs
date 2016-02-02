@@ -44,6 +44,7 @@
             this.projDir.Name = "projDir";
             this.projDir.Size = new System.Drawing.Size(510, 20);
             this.projDir.TabIndex = 0;
+            this.projDir.TextChanged += new System.EventHandler(this.projDir_TextChanged);
             // 
             // label1
             // 
@@ -127,7 +128,8 @@
             this.Controls.Add(this.logDir);
             this.Controls.Add(this.projDir);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Csproj Cleaner";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
