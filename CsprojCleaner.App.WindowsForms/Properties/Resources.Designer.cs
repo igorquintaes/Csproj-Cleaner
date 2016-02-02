@@ -61,6 +61,25 @@ namespace CsprojCleaner.App.WindowsForms.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Project Files|*.csproj.
+        /// </summary>
+        internal static string csprojFormat {
+            get {
+                return ResourceManager.GetString("csprojFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eguru_logo {
+            get {
+                object obj = ResourceManager.GetObject("eguru logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Erro (Exception). Verifique o log..
         /// </summary>
         internal static string ErrorExceptionVerifyLog {
@@ -102,6 +121,15 @@ namespace CsprojCleaner.App.WindowsForms.Properties {
         internal static string Loading___ {
             get {
                 return ResourceManager.GetString("Loading...", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verifique se todos os diretórios foram preenchidos..
+        /// </summary>
+        internal static string VerifyAllDirWasFilled {
+            get {
+                return ResourceManager.GetString("VerifyAllDirWasFilled", resourceCulture);
             }
         }
     }

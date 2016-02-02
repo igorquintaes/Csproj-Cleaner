@@ -27,6 +27,12 @@ namespace CsprojCleaner.App.WindowsForms
 
         private void Button1Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(projDir.Text) || String.IsNullOrEmpty(logDir.Text))
+            {
+                MessageBox.Show(Resources.VerifyAllDirWasFilled);
+                return;
+            }
+
             try
             {
                 CleanButton.Text = Resources.Loading___;
@@ -62,6 +68,26 @@ namespace CsprojCleaner.App.WindowsForms
         private void ProjDirTextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoadCsprojFolderButtonClick(object sender, EventArgs e)
+        {
+            if (FolderCsproj.ShowDialog() == DialogResult.OK)
+            {
+                projDir.Text = FolderCsproj.SelectedPath;
+            }
+        }
+
+        private void LoadLogFolderButtonClick(object sender, EventArgs e)
+        {
+            if (FolderLog.ShowDialog() == DialogResult.OK)
+            {
+                logDir.Text = FolderLog.SelectedPath;
+            }
+        }
+
+        private void FolderBrowserDialog1HelpRequest(object sender, EventArgs e)
+        { 
         }
     }
 }

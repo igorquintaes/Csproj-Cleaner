@@ -21,14 +21,14 @@ namespace CsprojCleaner.Core.Services
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
 
-                LogStatus = string.Format("{0}\\{1}{2}.txt", path, date, "-LOGSTATUS");
+                LogStatus = string.Format("{0}\\{1}{2}.txt", path, date, "-STATUS");
                 if (!File.Exists(LogStatus))
                 {
                     var fileStatus = File.Create(LogStatus);
                     fileStatus.Close();
                 }
 
-                LogError = string.Format("{0}\\{1}{2}.txt", path, date, "-LOGERROR");
+                LogError = string.Format("{0}\\{1}{2}.txt", path, date, "-ERROR");
                 if (!File.Exists(LogStatus))
                 {
                     var fileError = File.Create(LogError);

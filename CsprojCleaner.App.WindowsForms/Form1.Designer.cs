@@ -25,13 +25,19 @@
             this.CleanButton = new System.Windows.Forms.Button();
             this.logDir = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LoadCsprojButton = new System.Windows.Forms.Button();
+            this.LoadLogButton = new System.Windows.Forms.Button();
+            this.FolderCsproj = new System.Windows.Forms.FolderBrowserDialog();
+            this.FolderLog = new System.Windows.Forms.FolderBrowserDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // projDir
             // 
-            this.projDir.Location = new System.Drawing.Point(12, 88);
+            this.projDir.Location = new System.Drawing.Point(45, 88);
             this.projDir.Name = "projDir";
-            this.projDir.Size = new System.Drawing.Size(510, 20);
+            this.projDir.Size = new System.Drawing.Size(340, 20);
             this.projDir.TabIndex = 0;
             this.projDir.TextChanged += new System.EventHandler(this.ProjDirTextChanged);
             // 
@@ -60,9 +66,10 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(506, 13);
+            this.label3.Size = new System.Drawing.Size(509, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Insira um diretório válido para que todos os arquivos csproj dentro dele ou de suas subpastas sejam limpos.";
+            this.label3.Text = "Insira um diretório válido para que todos os arquivos csproj dentro dele ou de su" +
+    "as subpastas sejam limpos.";
             this.label3.Click += new System.EventHandler(this.Label2Click);
             // 
             // label4
@@ -79,7 +86,7 @@
             // 
             this.CleanButton.Location = new System.Drawing.Point(12, 178);
             this.CleanButton.Name = "CleanButton";
-            this.CleanButton.Size = new System.Drawing.Size(510, 23);
+            this.CleanButton.Size = new System.Drawing.Size(373, 23);
             this.CleanButton.TabIndex = 3;
             this.CleanButton.Text = "Executar Limpeza";
             this.CleanButton.UseVisualStyleBackColor = true;
@@ -87,9 +94,9 @@
             // 
             // logDir
             // 
-            this.logDir.Location = new System.Drawing.Point(12, 138);
+            this.logDir.Location = new System.Drawing.Point(45, 138);
             this.logDir.Name = "logDir";
-            this.logDir.Size = new System.Drawing.Size(510, 20);
+            this.logDir.Size = new System.Drawing.Size(340, 20);
             this.logDir.TabIndex = 0;
             // 
             // label5
@@ -102,11 +109,47 @@
             this.label5.Text = "Diretório da pasta de .csproj:";
             this.label5.Click += new System.EventHandler(this.Label1Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.eguru_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(398, 72);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 113);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // LoadCsprojButton
+            // 
+            this.LoadCsprojButton.Location = new System.Drawing.Point(12, 87);
+            this.LoadCsprojButton.Name = "LoadCsprojButton";
+            this.LoadCsprojButton.Size = new System.Drawing.Size(27, 21);
+            this.LoadCsprojButton.TabIndex = 5;
+            this.LoadCsprojButton.Text = "...";
+            this.LoadCsprojButton.UseVisualStyleBackColor = true;
+            this.LoadCsprojButton.Click += new System.EventHandler(this.LoadCsprojFolderButtonClick);
+            // 
+            // LoadLogButton
+            // 
+            this.LoadLogButton.Location = new System.Drawing.Point(12, 137);
+            this.LoadLogButton.Name = "LoadLogButton";
+            this.LoadLogButton.Size = new System.Drawing.Size(27, 21);
+            this.LoadLogButton.TabIndex = 5;
+            this.LoadLogButton.Text = "...";
+            this.LoadLogButton.UseVisualStyleBackColor = true;
+            this.LoadLogButton.Click += new System.EventHandler(this.LoadLogFolderButtonClick);
+            // 
+            // FolderCsproj
+            // 
+            this.FolderCsproj.HelpRequest += new System.EventHandler(this.FolderBrowserDialog1HelpRequest);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 213);
+            this.Controls.Add(this.LoadLogButton);
+            this.Controls.Add(this.LoadCsprojButton);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CleanButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -119,6 +162,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Csproj Cleaner";
             this.Load += new System.EventHandler(this.Form1Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +178,11 @@
         private System.Windows.Forms.Button CleanButton;
         private System.Windows.Forms.TextBox logDir;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button LoadCsprojButton;
+        private System.Windows.Forms.Button LoadLogButton;
+        private System.Windows.Forms.FolderBrowserDialog FolderCsproj;
+        private System.Windows.Forms.FolderBrowserDialog FolderLog;
     }
 }
 
