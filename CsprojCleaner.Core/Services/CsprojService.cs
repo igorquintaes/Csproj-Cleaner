@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Microsoft.Build.BuildEngine;
+using Microsoft.Build.Evaluation;
 
 namespace CsprojCleaner.Core.Services
 {
@@ -16,37 +16,29 @@ namespace CsprojCleaner.Core.Services
                 
                 LogService.WriteStatus("Arquivo: " + file);
 
-                var engine = new Engine(Environment.CurrentDirectory);
-                var csproj = new Project(engine);
+                var engine = new ProjectCollection { DefaultToolsVersion = "4.0" };
+                var csproj = engine.LoadProject(file);
                 var quantidadeDuplicatas = 0;
 
-                csproj.Load(file);
-
-                if (csproj.ItemGroups == null || csproj.ItemGroups.Count == 0)
+                if (csproj.Items.Count == 0)
                     return;
 
                 var currentReferences = new HashSet<string>();
+                var itensToRemove = new List<ProjectItem>();
 
-                foreach (BuildItemGroup ig in csproj.ItemGroups)
+                foreach (var projectItem in csproj.Items.Where(projectItem => projectItem.ItemType == "Content"))
                 {
-                    var itemsToRemove = new List<BuildItem>();
-
-                    foreach (var item in ig.Cast<BuildItem>().Where(item => item.Name == "Content"))
+                    if (!currentReferences.Contains(projectItem.Xml.Include))
                     {
-                        if (currentReferences.Contains(item.Include))
-                            itemsToRemove.Add(item);
-                        else
-                            currentReferences.Add(item.Include);
+                        currentReferences.Add(projectItem.Xml.Include);
+                        continue;
                     }
 
-                    quantidadeDuplicatas += itemsToRemove.Count;
-
-                    // Remove duplicate items
-                    foreach (var itemToRemove in itemsToRemove)
-                    {
-                        ig.RemoveItem(itemToRemove);
-                    }
+                    itensToRemove.Add(projectItem);
+                    quantidadeDuplicatas ++;
                 }
+
+                itensToRemove.ForEach(x => csproj.RemoveItem(x));
 
                 if (!ResolveIfNoDuplicatedItens(quantidadeDuplicatas)) return;
 
@@ -79,7 +71,7 @@ namespace CsprojCleaner.Core.Services
                 File.Delete(fullPath);
                 csproj.Save(fileName);
 
-                File.Move(csproj.FullFileName, fullPath);
+                File.Move(csproj.FullPath, fullPath);
             }
             catch (IOException)
             {
