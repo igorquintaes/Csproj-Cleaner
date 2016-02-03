@@ -34,6 +34,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
+            // projDir
+            // 
+            this.projDir.Location = new System.Drawing.Point(45, 88);
+            this.projDir.Name = "projDir";
+            this.projDir.Size = new System.Drawing.Size(340, 20);
+            this.projDir.TabIndex = 1;
+            this.projDir.TextChanged += new System.EventHandler(this.ProjDirTextChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -76,6 +84,23 @@
             this.label4.Text = "A limpeza iniciará assim que o botão \"Executar Limpeza\" for clicado.";
             this.label4.Click += new System.EventHandler(this.Label2Click);
             // 
+            // CleanButton
+            // 
+            this.CleanButton.Location = new System.Drawing.Point(12, 178);
+            this.CleanButton.Name = "CleanButton";
+            this.CleanButton.Size = new System.Drawing.Size(373, 23);
+            this.CleanButton.TabIndex = 4;
+            this.CleanButton.Text = "Executar Limpeza";
+            this.CleanButton.UseVisualStyleBackColor = true;
+            this.CleanButton.Click += new System.EventHandler(this.Button1Click);
+            // 
+            // logDir
+            // 
+            this.logDir.Location = new System.Drawing.Point(45, 138);
+            this.logDir.Name = "logDir";
+            this.logDir.Size = new System.Drawing.Size(340, 20);
+            this.logDir.TabIndex = 3;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -86,20 +111,14 @@
             this.label5.Text = "Diretório da pasta de .csproj:";
             this.label5.Click += new System.EventHandler(this.Label1Click);
             // 
-            // projDir
+            // pictureBox1
             // 
-            this.projDir.Location = new System.Drawing.Point(45, 88);
-            this.projDir.Name = "projDir";
-            this.projDir.Size = new System.Drawing.Size(340, 20);
-            this.projDir.TabIndex = 1;
-            this.projDir.TextChanged += new System.EventHandler(this.ProjDirTextChanged);
-            // 
-            // logDir
-            // 
-            this.logDir.Location = new System.Drawing.Point(45, 138);
-            this.logDir.Name = "logDir";
-            this.logDir.Size = new System.Drawing.Size(340, 20);
-            this.logDir.TabIndex = 3;
+            this.pictureBox1.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.eguru_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(400, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 111);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // LoadCsprojButton
             // 
@@ -121,34 +140,15 @@
             this.LoadLogButton.UseVisualStyleBackColor = true;
             this.LoadLogButton.Click += new System.EventHandler(this.LoadLogFolderButtonClick);
             // 
-            // CleanButton
-            // 
-            this.CleanButton.Location = new System.Drawing.Point(12, 178);
-            this.CleanButton.Name = "CleanButton";
-            this.CleanButton.Size = new System.Drawing.Size(373, 23);
-            this.CleanButton.TabIndex = 4;
-            this.CleanButton.Text = "Executar Limpeza";
-            this.CleanButton.UseVisualStyleBackColor = true;
-            this.CleanButton.Click += new System.EventHandler(this.Button1Click);
-            // 
             // FolderCsproj
             // 
             this.FolderCsproj.HelpRequest += new System.EventHandler(this.FolderBrowserDialog1HelpRequest);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.eguru_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(398, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 111);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(398, 178);
+            this.progressBar1.Location = new System.Drawing.Point(400, 179);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(120, 23);
+            this.progressBar1.Size = new System.Drawing.Size(120, 21);
             this.progressBar1.TabIndex = 6;
             this.progressBar1.Click += new System.EventHandler(this.ProgressBar1Click);
             // 
