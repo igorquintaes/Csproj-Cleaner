@@ -18,9 +18,6 @@ namespace CsprojCleaner.App.WindowsForms
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
-
-            _countItems = 0;
-            _countLoop = 0;
         }
 
         private void Label1Click(object sender, EventArgs e)
@@ -103,6 +100,8 @@ namespace CsprojCleaner.App.WindowsForms
 
             lock (stateLock)
             {
+                _countItems = 0;
+                _countLoop = 0;
                 currentCount = 0;
                 CleanButton.Enabled = false;
             }
