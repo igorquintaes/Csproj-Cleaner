@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace CsprojCleaner.Core.Services
                 var currentReferences = new HashSet<string>();
                 var itensToRemove = new List<ProjectItem>();
 
-                foreach (var projectItem in csproj.Items.Where(projectItem => projectItem.ItemType == "Content"))
+                foreach (var projectItem in csproj.Items.Where(projectItem => projectItem.ItemType == "Content") || projectItem.ItemType == "Compile"))
                 {
                     if (!currentReferences.Contains(projectItem.Xml.Include))
                     {
