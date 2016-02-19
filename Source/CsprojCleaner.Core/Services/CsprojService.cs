@@ -13,7 +13,7 @@ namespace CsprojCleaner.Core.Services
             try
             {
                 BeforeClean();
-                
+
                 LogService.WriteStatus("Arquivo: " + file);
 
                 var engine = new ProjectCollection { DefaultToolsVersion = "4.0" };
@@ -26,7 +26,7 @@ namespace CsprojCleaner.Core.Services
                 var currentReferences = new HashSet<string>();
                 var itensToRemove = new List<ProjectItem>();
 
-                foreach (var projectItem in csproj.Items.Where(projectItem => projectItem.ItemType == "Content") || projectItem.ItemType == "Compile"))
+                foreach (var projectItem in csproj.Items.Where(projectItem => projectItem.ItemType == "Content" || projectItem.ItemType == "Compile"))
                 {
                     if (!currentReferences.Contains(projectItem.Xml.Include))
                     {
@@ -93,7 +93,7 @@ namespace CsprojCleaner.Core.Services
             return true;
         }
 
-        
+
 
         private static void BeforeClean()
         {

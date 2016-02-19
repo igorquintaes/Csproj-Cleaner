@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -90,7 +90,7 @@ namespace CsprojCleaner.App.WindowsForms
         }
 
         private void FolderBrowserDialog1HelpRequest(object sender, EventArgs e)
-        { 
+        {
 
         }
 
