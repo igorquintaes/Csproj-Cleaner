@@ -1,4 +1,4 @@
-﻿namespace CsprojCleaner.App.WindowsForms
+namespace CsprojCleaner.App.WindowsForms
 {
     partial class Form1
     {
@@ -33,17 +33,17 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // projDir
-            // 
+            //
             this.projDir.Location = new System.Drawing.Point(45, 88);
             this.projDir.Name = "projDir";
             this.projDir.Size = new System.Drawing.Size(340, 20);
             this.projDir.TabIndex = 1;
             this.projDir.TextChanged += new System.EventHandler(this.ProjDirTextChanged);
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 122);
             this.label1.Name = "label1";
@@ -51,9 +51,9 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Diretório da pasta de armazenamento de logs:";
             this.label1.Click += new System.EventHandler(this.Label1Click);
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(9, 9);
@@ -62,9 +62,9 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Procedimentos:";
             this.label2.Click += new System.EventHandler(this.Label2Click);
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 31);
             this.label3.Name = "label3";
@@ -73,9 +73,9 @@
             this.label3.Text = "Insira um diretório válido para que todos os arquivos csproj dentro dele ou de su" +
     "as subpastas sejam limpos.";
             this.label3.Click += new System.EventHandler(this.Label2Click);
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 44);
             this.label4.Name = "label4";
@@ -83,9 +83,9 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "A limpeza iniciará assim que o botão \"Executar Limpeza\" for clicado.";
             this.label4.Click += new System.EventHandler(this.Label2Click);
-            // 
+            //
             // CleanButton
-            // 
+            //
             this.CleanButton.Location = new System.Drawing.Point(12, 178);
             this.CleanButton.Name = "CleanButton";
             this.CleanButton.Size = new System.Drawing.Size(373, 23);
@@ -93,16 +93,16 @@
             this.CleanButton.Text = "Executar Limpeza";
             this.CleanButton.UseVisualStyleBackColor = true;
             this.CleanButton.Click += new System.EventHandler(this.Button1Click);
-            // 
+            //
             // logDir
-            // 
+            //
             this.logDir.Location = new System.Drawing.Point(45, 138);
             this.logDir.Name = "logDir";
             this.logDir.Size = new System.Drawing.Size(340, 20);
             this.logDir.TabIndex = 3;
-            // 
+            //
             // label5
-            // 
+            //
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 72);
             this.label5.Name = "label5";
@@ -110,18 +110,18 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Diretório da pasta de .csproj:";
             this.label5.Click += new System.EventHandler(this.Label1Click);
-            // 
+            //
             // pictureBox1
-            // 
+            //
             this.pictureBox1.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.eguru_logo;
             this.pictureBox1.Location = new System.Drawing.Point(400, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(120, 111);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            // 
+            //
             // LoadCsprojButton
-            // 
+            //
             this.LoadCsprojButton.Location = new System.Drawing.Point(12, 87);
             this.LoadCsprojButton.Name = "LoadCsprojButton";
             this.LoadCsprojButton.Size = new System.Drawing.Size(27, 21);
@@ -129,9 +129,9 @@
             this.LoadCsprojButton.Text = "...";
             this.LoadCsprojButton.UseVisualStyleBackColor = true;
             this.LoadCsprojButton.Click += new System.EventHandler(this.LoadCsprojFolderButtonClick);
-            // 
+            //
             // LoadLogButton
-            // 
+            //
             this.LoadLogButton.Location = new System.Drawing.Point(12, 137);
             this.LoadLogButton.Name = "LoadLogButton";
             this.LoadLogButton.Size = new System.Drawing.Size(27, 21);
@@ -139,21 +139,21 @@
             this.LoadLogButton.Text = "...";
             this.LoadLogButton.UseVisualStyleBackColor = true;
             this.LoadLogButton.Click += new System.EventHandler(this.LoadLogFolderButtonClick);
-            // 
+            //
             // FolderCsproj
-            // 
+            //
             this.FolderCsproj.HelpRequest += new System.EventHandler(this.FolderBrowserDialog1HelpRequest);
-            // 
+            //
             // progressBar1
-            // 
+            //
             this.progressBar1.Location = new System.Drawing.Point(400, 179);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(120, 21);
             this.progressBar1.TabIndex = 6;
             this.progressBar1.Click += new System.EventHandler(this.ProgressBar1Click);
-            // 
+            //
             // Form1
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 213);
