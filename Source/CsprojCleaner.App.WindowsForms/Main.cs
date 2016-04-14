@@ -57,7 +57,6 @@ namespace CsprojCleaner.App.WindowsForms
             try
             {
                 CleanButton.Text = Resources.Loading___;
-                CleanButton.Enabled = false;
 
                 var t = new Thread(ThreadClean) { IsBackground = true };
                 t.Start();
@@ -112,6 +111,7 @@ namespace CsprojCleaner.App.WindowsForms
                 _countItems = 0;
                 _countLoop = 0;
                 currentCount = 0;
+                CleanButton.Enabled = false;
             }
             Invoke(updateCounterDelegate);
 
