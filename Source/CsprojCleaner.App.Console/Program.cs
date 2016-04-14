@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Configuration;
 using System.Linq;
 using CsprojCleaner.Core.Exceptions;
@@ -15,8 +15,8 @@ namespace CsprojCleaner.App.Console
                 System.Console.WriteLine("Iniciando Limpeza...");
                 LogService.InitializeLog(ConfigurationManager.AppSettings["LogPath"]);
 
-                var files = FolderService.GetAllCsprojPathFromAFolder(ConfigurationManager.AppSettings["FolderPath"]).ToList();
-                files.ForEach(CsprojService.Clean);
+                var files = FolderService.GetAllProjectPathFromAFolder(ConfigurationManager.AppSettings["FolderPath"]).ToList();
+                files.ForEach(ProjectService.Clean);
             }
             catch (LogException)
             {

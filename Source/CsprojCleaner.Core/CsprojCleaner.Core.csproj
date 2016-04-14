@@ -45,10 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Extensions.cs" />
     <Compile Include="Exceptions\FolderException.cs" />
     <Compile Include="Exceptions\LogException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CsprojService.cs" />
+    <Compile Include="Services\ProjectService.cs" />
     <Compile Include="Services\FolderService.cs" />
     <Compile Include="Services\LogService.cs" />
   </ItemGroup>

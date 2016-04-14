@@ -6,7 +6,7 @@ using Microsoft.Build.Evaluation;
 
 namespace CsprojCleaner.Core.Services
 {
-    public class CsprojService
+    public class ProjectService
     {
         public static void Clean(string file)
         {
@@ -92,8 +92,6 @@ namespace CsprojCleaner.Core.Services
             LogService.WriteStatus(String.Empty);
             return true;
         }
-
-
 
         private static void BeforeClean()
         {

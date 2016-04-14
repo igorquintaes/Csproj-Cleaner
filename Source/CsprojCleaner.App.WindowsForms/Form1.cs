@@ -118,7 +118,7 @@ namespace CsprojCleaner.App.WindowsForms
             List<string> files;
             lock (stateLock)
             {
-                files = FolderService.GetAllCsprojPathFromAFolder(projDir.Text).ToList();
+                files = FolderService.GetAllProjectPathFromAFolder(projDir.Text).ToList();
                 _countItems = files.Count;
                 currentCount = 10;
             }
@@ -127,7 +127,7 @@ namespace CsprojCleaner.App.WindowsForms
             {
                 lock (stateLock)
                 {
-                    CsprojService.Clean(t);
+                    ProjectService.Clean(t);
                     _countLoop++;
                 }
 
