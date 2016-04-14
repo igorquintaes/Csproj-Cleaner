@@ -9,30 +9,20 @@ using CsprojCleaner.Core.Services;
 
 namespace CsprojCleaner.App.WindowsForms
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         private int _countItems;
         private int _countLoop;
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
-        private void Label1Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Button1Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(projDir.Text) || String.IsNullOrEmpty(logDir.Text))
+            if (String.IsNullOrEmpty(ProjDir.Text) || String.IsNullOrEmpty(LogDir.Text))
             {
                 MessageBox.Show(Resources.VerifyAllDirWasFilled , Resources.Warning_);
                 return;
@@ -63,21 +53,11 @@ namespace CsprojCleaner.App.WindowsForms
             CleanButton.Enabled = true;
         }
 
-        private void Form1Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProjDirTextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoadCsprojFolderButtonClick(object sender, EventArgs e)
         {
             if (FolderCsproj.ShowDialog() == DialogResult.OK)
             {
-                projDir.Text = FolderCsproj.SelectedPath;
+                ProjDir.Text = FolderCsproj.SelectedPath;
             }
         }
 
@@ -85,13 +65,8 @@ namespace CsprojCleaner.App.WindowsForms
         {
             if (FolderLog.ShowDialog() == DialogResult.OK)
             {
-                logDir.Text = FolderLog.SelectedPath;
+                LogDir.Text = FolderLog.SelectedPath;
             }
-        }
-
-        private void FolderBrowserDialog1HelpRequest(object sender, EventArgs e)
-        {
-
         }
 
         void ThreadClean()
@@ -109,7 +84,7 @@ namespace CsprojCleaner.App.WindowsForms
 
             lock (stateLock)
             {
-                LogService.InitializeLog(logDir.Text);
+                LogService.InitializeLog(LogDir.Text);
                 currentCount = 5;
             }
             Invoke(updateCounterDelegate);
@@ -118,7 +93,7 @@ namespace CsprojCleaner.App.WindowsForms
             List<string> files;
             lock (stateLock)
             {
-                files = FolderService.GetAllProjectPathFromAFolder(projDir.Text).ToList();
+                files = FolderService.GetAllProjectPathFromAFolder(ProjDir.Text).ToList();
                 _countItems = files.Count;
                 currentCount = 10;
             }
@@ -152,7 +127,7 @@ namespace CsprojCleaner.App.WindowsForms
                     tmpCount = Convert.ToInt32(value);
                 }
 
-                progressBar1.Value = tmpCount;
+                LoadingBar.Value = tmpCount;
             }
         }
 
@@ -160,12 +135,7 @@ namespace CsprojCleaner.App.WindowsForms
         {
             CleanButton.Enabled = true;
             CleanButton.Text = Resources.FinishedClickToRunAgain;
-            progressBar1.Value = 100;
-        }
-
-        private void ProgressBar1Click(object sender, EventArgs e)
-        {
-
+            LoadingBar.Value = 100;
         }
     }
 }
