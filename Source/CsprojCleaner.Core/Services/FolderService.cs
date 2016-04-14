@@ -2,14 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using CsprojCleaner.Core.Constants;
-using CsprojCleaner.Core.Exceptions;
+using CsprojCleaner.Domain.Constants;
+using CsprojCleaner.Domain.Contracts;
+using CsprojCleaner.Domain.Exceptions;
 
 namespace CsprojCleaner.Core.Services
 {
-    public class FolderService
+    public class FolderService : IFolderService
     {
-        public static IEnumerable<string> ProjectExtensions { get; private set; }
+        
+        private readonly ILogService _logService;
+
+        public FolderService(ILogService logService)
+        {
+            _logService = logService;
+        }
+
+        public IEnumerable<string> ProjectExtensions { get; private set; }
 
         public void SetProjectExtensions(List<string> extensions)
         {
@@ -19,7 +28,7 @@ namespace CsprojCleaner.Core.Services
             ProjectExtensions = extensions;
         }
 
-        public static IEnumerable<string> GetAllProjectPathFromAFolder(string folder)
+        public IEnumerable<string> GetAllProjectPathFromAFolder(string folder)
         {
             try
             {
@@ -32,16 +41,16 @@ namespace CsprojCleaner.Core.Services
 
                 if (!files.Any())
                 {
-                    LogService.WriteStatus("Não foram encontrados arquivos de projeto no caminho especificado.");
+                    _logService.WriteStatus("Não foram encontrados arquivos de projeto no caminho especificado.");
                     return new List<string>();
                 }
 
-                files.ForEach(x => LogService.WriteStatus(String.Format("Arquivo encontrado: {0}", x)));
+                files.ForEach(x => _logService.WriteStatus(String.Format("Arquivo encontrado: {0}", x)));
                 return files;
             }
             catch (Exception e)
             {
-                LogService.ConsoleLog = e.Message;
+                _logService.SetConsoleLog(e.Message);
                 throw new FolderException();
             }
         }

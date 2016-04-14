@@ -1,17 +1,18 @@
 using System;
 using System.IO;
-using CsprojCleaner.Core.Exceptions;
 
 namespace CsprojCleaner.Core.Services
 {
-    public static class LogService
+    using Domain.Contracts;
+    using Domain.Exceptions;
+
+    public class LogService : ILogService
     {
+        public string LogStatus { get; private set; }
+        public string LogError { get; private set; }
+        public string ConsoleLog { get; private set; }
 
-        public static string LogStatus { get; set; }
-        public static string LogError { get; set; }
-        public static string ConsoleLog { get; set; }
-
-        public static void InitializeLog(string path)
+        public void InitializeLog(string path)
         {
             try
             {
@@ -41,8 +42,7 @@ namespace CsprojCleaner.Core.Services
                 throw new LogException();
             }
         }
-
-        public static void WriteStatus(string lines)
+        public void WriteStatus(string lines)
         {
             if (string.IsNullOrEmpty(LogStatus)) throw new Exception("Path de log inválido.");
 
@@ -50,8 +50,7 @@ namespace CsprojCleaner.Core.Services
             file.WriteLine(String.IsNullOrEmpty(lines) ? String.Empty : DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + " " + lines);
             file.Close();
         }
-
-        public static void WriteError(string lines)
+        public void WriteError(string lines)
         {
             if (string.IsNullOrEmpty(LogError)) throw new Exception("Path de log inválido.");
 
@@ -59,6 +58,10 @@ namespace CsprojCleaner.Core.Services
             file.WriteLine(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + " " + lines);
             file.WriteLine(String.Empty);
             file.Close();
+        }
+        public void SetConsoleLog(string message)
+        {
+            ConsoleLog = message;
         }
     }
 }

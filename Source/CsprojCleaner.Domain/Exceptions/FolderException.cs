@@ -1,6 +1,6 @@
 using System;
 
-namespace CsprojCleaner.Core.Exceptions
+namespace CsprojCleaner.Domain.Exceptions
 {
     public class FolderException : Exception
     {

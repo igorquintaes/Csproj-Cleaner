@@ -5,17 +5,6 @@ namespace CsprojCleaner.App.WindowsForms
 {
     partial class Main
     {
-        private System.ComponentModel.IContainer components = null;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         #region Windows Form Designer generated code
 
         private void InitializeComponent()
@@ -82,7 +71,7 @@ namespace CsprojCleaner.App.WindowsForms
             this.CleanButton.TabIndex = 4;
             this.CleanButton.Text = "Executar Limpeza";
             this.CleanButton.UseVisualStyleBackColor = true;
-            this.CleanButton.Click += new System.EventHandler(this.Button1Click);
+            this.CleanButton.Click += new System.EventHandler(this.RunProjectCleaner);
             // 
             // LogDir
             // 
@@ -117,7 +106,7 @@ namespace CsprojCleaner.App.WindowsForms
             this.LoadCsprojButton.TabIndex = 0;
             this.LoadCsprojButton.Text = "...";
             this.LoadCsprojButton.UseVisualStyleBackColor = true;
-            this.LoadCsprojButton.Click += new System.EventHandler(this.LoadCsprojFolderButtonClick);
+            this.LoadCsprojButton.Click += new System.EventHandler(this.LoadCsprojFolder);
             // 
             // LoadLogButton
             // 
@@ -127,7 +116,7 @@ namespace CsprojCleaner.App.WindowsForms
             this.LoadLogButton.TabIndex = 2;
             this.LoadLogButton.Text = "...";
             this.LoadLogButton.UseVisualStyleBackColor = true;
-            this.LoadLogButton.Click += new System.EventHandler(this.LoadLogFolderButtonClick);
+            this.LoadLogButton.Click += new System.EventHandler(this.LoadLogFolder);
             // 
             // LoadingBar
             // 

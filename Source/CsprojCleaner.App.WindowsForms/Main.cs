@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using CsprojCleaner.App.WindowsForms.Properties;
-using CsprojCleaner.Core.Exceptions;
-using CsprojCleaner.Core.Services;
+using CsprojCleaner.Domain.Contracts;
+using CsprojCleaner.Domain.Exceptions;
 
 namespace CsprojCleaner.App.WindowsForms
 {
@@ -14,13 +14,24 @@ namespace CsprojCleaner.App.WindowsForms
         private int _countItems;
         private int _countLoop;
 
-        public Main()
+
+        private readonly ILogService _logService;
+        private readonly IProjectService _projectService;
+        private readonly IFolderService _folderService;
+
+        public Main(ILogService logService,
+            IProjectService projectService,
+            IFolderService folderService)
         {
+            _logService = logService;
+            _projectService = projectService;
+            _folderService = folderService;
+
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
-        private void Button1Click(object sender, EventArgs e)
+        private void RunProjectCleaner(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(ProjDir.Text) || String.IsNullOrEmpty(LogDir.Text))
             {
@@ -42,18 +53,18 @@ namespace CsprojCleaner.App.WindowsForms
             catch (FolderException)
             {
                 CleanButton.Text = Resources.ErrorFolderExceptionVerifyLog;
-                LogService.WriteError(LogService.ConsoleLog);
+                _logService.WriteError(_logService.ConsoleLog);
             }
             catch (Exception ex)
             {
                 CleanButton.Text = Resources.ErrorExceptionVerifyLog;
-                LogService.WriteError(ex.Message);
+                _logService.WriteError(ex.Message);
             }
 
             CleanButton.Enabled = true;
         }
 
-        private void LoadCsprojFolderButtonClick(object sender, EventArgs e)
+        private void LoadCsprojFolder(object sender, EventArgs e)
         {
             if (FolderCsproj.ShowDialog() == DialogResult.OK)
             {
@@ -61,7 +72,7 @@ namespace CsprojCleaner.App.WindowsForms
             }
         }
 
-        private void LoadLogFolderButtonClick(object sender, EventArgs e)
+        private void LoadLogFolder(object sender, EventArgs e)
         {
             if (FolderLog.ShowDialog() == DialogResult.OK)
             {
@@ -69,7 +80,7 @@ namespace CsprojCleaner.App.WindowsForms
             }
         }
 
-        void ThreadClean()
+        private void ThreadClean()
         {
             var updateCounterDelegate = new MethodInvoker(UpdateCount);
 
@@ -84,7 +95,7 @@ namespace CsprojCleaner.App.WindowsForms
 
             lock (stateLock)
             {
-                LogService.InitializeLog(LogDir.Text);
+                _logService.InitializeLog(LogDir.Text);
                 currentCount = 5;
             }
             Invoke(updateCounterDelegate);
@@ -93,7 +104,7 @@ namespace CsprojCleaner.App.WindowsForms
             List<string> files;
             lock (stateLock)
             {
-                files = FolderService.GetAllProjectPathFromAFolder(ProjDir.Text).ToList();
+                files = _folderService.GetAllProjectPathFromAFolder(ProjDir.Text).ToList();
                 _countItems = files.Count;
                 currentCount = 10;
             }
@@ -102,7 +113,7 @@ namespace CsprojCleaner.App.WindowsForms
             {
                 lock (stateLock)
                 {
-                    ProjectService.Clean(t);
+                    _projectService.Clean(t);
                     _countLoop++;
                 }
 
@@ -112,7 +123,7 @@ namespace CsprojCleaner.App.WindowsForms
             Invoke(new MethodInvoker(Finish));
         }
 
-        void UpdateCount()
+        private void UpdateCount()
         {
             lock (stateLock)
             {
@@ -131,7 +142,7 @@ namespace CsprojCleaner.App.WindowsForms
             }
         }
 
-        void Finish()
+        private void Finish()
         {
             CleanButton.Enabled = true;
             CleanButton.Text = Resources.FinishedClickToRunAgain;
