@@ -51,8 +51,8 @@
     <Compile Include="Contracts\IFolderService.cs" />
     <Compile Include="Contracts\ILogService.cs" />
     <Compile Include="Contracts\IProjectService.cs" />
-    <Compile Include="Exceptions\FolderException.cs" />
-    <Compile Include="Exceptions\LogException.cs" />
+    <Compile Include="Exceptions\ReadFolderException.cs" />
+    <Compile Include="Exceptions\InitializeLogException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

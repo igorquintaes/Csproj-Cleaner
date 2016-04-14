@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,7 +51,7 @@ namespace CsprojCleaner.Core.Services
             catch (Exception e)
             {
                 _logService.SetConsoleLog(e.Message);
-                throw new FolderException();
+                throw new ReadFolderException();
             }
         }
     }

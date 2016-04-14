@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -30,40 +31,7 @@ namespace CsprojCleaner.App.WindowsForms
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-
-        private void RunProjectCleaner(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(ProjDir.Text) || String.IsNullOrEmpty(LogDir.Text))
-            {
-                MessageBox.Show(Resources.VerifyAllDirWasFilled , Resources.Warning_);
-                return;
-            }
-
-            try
-            {
-                CleanButton.Text = Resources.Loading___;
-
-                var t = new Thread(ThreadClean) { IsBackground = true };
-                t.Start();
-            }
-            catch (LogException)
-            {
-                CleanButton.Text = Resources.ErrorLogExceptionInitialize;
-            }
-            catch (FolderException)
-            {
-                CleanButton.Text = Resources.ErrorFolderExceptionVerifyLog;
-                _logService.WriteError(_logService.ConsoleLog);
-            }
-            catch (Exception ex)
-            {
-                CleanButton.Text = Resources.ErrorExceptionVerifyLog;
-                _logService.WriteError(ex.Message);
-            }
-
-            CleanButton.Enabled = true;
-        }
-
+        
         private void LoadCsprojFolder(object sender, EventArgs e)
         {
             if (FolderCsproj.ShowDialog() == DialogResult.OK)
@@ -80,6 +48,61 @@ namespace CsprojCleaner.App.WindowsForms
             }
         }
 
+        private void RunProjectCleaner(object sender, EventArgs e)
+        {
+            _logService.SetSaveLog(!String.IsNullOrEmpty(LogDir.Text));
+
+            if (!ValidateInputs()) return;
+
+            try
+            {
+                CleanButton.Text = Resources.Loading___;
+                CleanButton.Enabled = false;
+
+                var t = new Thread(ThreadClean) { IsBackground = true };
+                t.Start();
+            }
+            catch (InitializeLogException)
+            {
+                CleanButton.Text = Resources.ErrorLogExceptionInitialize;
+            }
+            catch (ReadFolderException)
+            {
+                CleanButton.Text = Resources.ErrorFolderExceptionVerifyLog;
+                _logService.WriteError(_logService.ConsoleLog);
+            }
+            catch (Exception ex)
+            {
+                CleanButton.Text = Resources.ErrorExceptionVerifyLog;
+                _logService.WriteError(ex.Message);
+            }
+
+            CleanButton.Enabled = true;
+        }
+
+        private bool ValidateInputs()
+        {
+            if (String.IsNullOrEmpty(ProjDir.Text))
+            {
+                MessageBox.Show(Resources.VerifyAllDirWasFilled, Resources.Warning_);
+                return false;
+            }
+
+            if (!Directory.Exists(ProjDir.Text))
+            {
+                MessageBox.Show("O diretório de projetos não existe. Por favor, selecione um diretório válido.");
+                return false;
+            }
+
+            if (_logService.SaveLog && !Directory.Exists(LogDir.Text))
+            {
+                MessageBox.Show("O diretório de log não existe. Por favor, selecione um diretório válido.");
+                return false;
+            }
+
+            return true;
+        }
+
         private void ThreadClean()
         {
             var updateCounterDelegate = new MethodInvoker(UpdateCount);
@@ -89,7 +112,6 @@ namespace CsprojCleaner.App.WindowsForms
                 _countItems = 0;
                 _countLoop = 0;
                 currentCount = 0;
-                CleanButton.Enabled = false;
             }
             Invoke(updateCounterDelegate);
 
