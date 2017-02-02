@@ -8,7 +8,7 @@ using CsprojCleaner.App.WindowsForms.Properties;
 using CsprojCleaner.Domain.Contracts;
 using CsprojCleaner.Domain.Exceptions;
 
-namespace CsprojCleaner.App.WindowsForms
+namespace CsprojCleaner.App.WindowsForms.Forms
 {
     public partial class Main : Form
     {
@@ -169,6 +169,61 @@ namespace CsprojCleaner.App.WindowsForms
             CleanButton.Enabled = true;
             CleanButton.Text = Resources.FinishedClickToRunAgain;
             LoadingBar.Value = 100;
+        }
+
+        private void LoadingBar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogDir_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogoImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelLogFolder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProjDir_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelProjectFolder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StepsLabelDescription_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StepsLabelTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

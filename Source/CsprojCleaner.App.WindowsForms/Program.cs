@@ -2,6 +2,7 @@ using System;
 using System.Windows.Forms;
 using CsprojCleaner.Core.Services;
 using CsprojCleaner.Domain.Contracts;
+using CsprojCleaner.App.WindowsForms.Forms;
 using SimpleInjector;
 
 namespace CsprojCleaner.App.WindowsForms
