@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace CsprojCleaner.App.WindowsForms.Forms
 {
@@ -232,6 +233,9 @@ namespace CsprojCleaner.App.WindowsForms.Forms
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opcoesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+
+        AutoCompleteStringCollection autoCompleteProjectPaths = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection autoCompleteLogPaths = new AutoCompleteStringCollection();
     }
 }
 

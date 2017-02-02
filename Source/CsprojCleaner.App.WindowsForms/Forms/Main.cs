@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using CsprojCleaner.App.WindowsForms.Properties;
 using CsprojCleaner.Domain.Contracts;
 using CsprojCleaner.Domain.Exceptions;
+using CsprojCleaner.App.WindowsForms.ProjectSettings;
+using CsprojCleaner.App.WindowsForms.Extensions;
 
 namespace CsprojCleaner.App.WindowsForms.Forms
 {
@@ -14,7 +16,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
     {
         private int _countItems;
         private int _countLoop;
-
 
         private readonly ILogService _logService;
         private readonly IProjectService _projectService;
@@ -30,6 +31,17 @@ namespace CsprojCleaner.App.WindowsForms.Forms
 
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            autoCompleteProjectPaths.AddRange(UserSettings.RecoverProjectPaths().ToArray());
+            autoCompleteLogPaths.AddRange(UserSettings.RecoverLogPaths().ToArray());
+
+            ProjDir.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            ProjDir.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            ProjDir.AutoCompleteCustomSource = autoCompleteProjectPaths;
+
+            LogDir.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            LogDir.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            LogDir.AutoCompleteCustomSource = autoCompleteLogPaths;
         }
         
         private void LoadCsprojFolder(object sender, EventArgs e)
@@ -54,9 +66,18 @@ namespace CsprojCleaner.App.WindowsForms.Forms
 
             if (!ValidateInputs()) return;
 
+            UserSettings.RememberPaths(ProjDir.Text, LogDir.Text);
+
+            if (!autoCompleteProjectPaths.Contains(ProjDir.Text))
+                autoCompleteProjectPaths.Add(ProjDir.Text);
+
+            if (!autoCompleteLogPaths.Contains(LogDir.Text))
+                autoCompleteLogPaths.Add(LogDir.Text);
+
             try
             {
                 CleanButton.Text = Resources.Loading___;
+                CleanButton.Enabled = false;
 
                 var t = new Thread(ThreadClean) { IsBackground = true };
                 t.Start();
@@ -111,7 +132,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
                 _countItems = 0;
                 _countLoop = 0;
                 currentCount = 0;
-                CleanButton.Enabled = false;
             }
             Invoke(updateCounterDelegate);
 
