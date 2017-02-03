@@ -83,7 +83,7 @@
             this.saveConfiguration.TabIndex = 4;
             this.saveConfiguration.Text = "Save";
             this.saveConfiguration.UseVisualStyleBackColor = true;
-            this.saveConfiguration.Click += new System.EventHandler(this.button1_Click);
+            this.saveConfiguration.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // cancelButton
             // 
@@ -93,6 +93,7 @@
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // Configuration
             // 
@@ -105,6 +106,9 @@
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.language);
             this.Controls.Add(this.comboBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Configuration";
             this.Text = "Configuration";
             this.ResumeLayout(false);

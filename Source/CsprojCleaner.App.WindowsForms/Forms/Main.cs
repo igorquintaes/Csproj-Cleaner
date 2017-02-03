@@ -9,6 +9,8 @@ using CsprojCleaner.Domain.Contracts;
 using CsprojCleaner.Domain.Exceptions;
 using CsprojCleaner.App.WindowsForms.ProjectSettings;
 using CsprojCleaner.App.WindowsForms.Extensions;
+using CsprojCleaner.App.WindowsForms.Forms.Help;
+using CsprojCleaner.App.WindowsForms.Forms.Tools;
 
 namespace CsprojCleaner.App.WindowsForms.Forms
 {
@@ -236,14 +238,16 @@ namespace CsprojCleaner.App.WindowsForms.Forms
 
         }
 
-        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Configuration configurationForm = new Configuration();
+            configurationForm.Show();
         }
 
-        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            About aboutForm = new About();
+            aboutForm.Show();
         }
     }
 }

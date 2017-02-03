@@ -22,9 +22,14 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cancelBtn_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            // todo
         }
     }
 }

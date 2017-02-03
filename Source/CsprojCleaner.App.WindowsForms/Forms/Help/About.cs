@@ -32,9 +32,9 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void closeBtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void linkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -36,16 +36,6 @@
             authorName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // contribuitors
-            // 
-            this.contribuitors.AutoSize = true;
-            this.contribuitors.Location = new System.Drawing.Point(12, 75);
-            this.contribuitors.Name = "contribuitors";
-            this.contribuitors.Size = new System.Drawing.Size(68, 13);
-            this.contribuitors.TabIndex = 0;
-            this.contribuitors.Text = "Contribuitors:";
-            this.contribuitors.Click += new System.EventHandler(this.developedBy_Click);
-            // 
             // authorName
             // 
             authorName.AutoSize = true;
@@ -55,6 +45,16 @@
             authorName.TabIndex = 1;
             authorName.Text = "igorquintaes, VitorLuizC, dhustkoder.";
             authorName.Click += new System.EventHandler(this.authorName_Click);
+            // 
+            // contribuitors
+            // 
+            this.contribuitors.AutoSize = true;
+            this.contribuitors.Location = new System.Drawing.Point(12, 75);
+            this.contribuitors.Name = "contribuitors";
+            this.contribuitors.Size = new System.Drawing.Size(68, 13);
+            this.contribuitors.TabIndex = 0;
+            this.contribuitors.Text = "Contribuitors:";
+            this.contribuitors.Click += new System.EventHandler(this.developedBy_Click);
             // 
             // sourceCodeIn
             // 
@@ -86,7 +86,7 @@
             this.closeBtn.TabIndex = 4;
             this.closeBtn.Text = "Close";
             this.closeBtn.UseVisualStyleBackColor = true;
-            this.closeBtn.Click += new System.EventHandler(this.button1_Click);
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // About
             // 
@@ -98,6 +98,9 @@
             this.Controls.Add(this.sourceCodeIn);
             this.Controls.Add(authorName);
             this.Controls.Add(this.contribuitors);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "About";
             this.Text = "About";
             this.ResumeLayout(false);
