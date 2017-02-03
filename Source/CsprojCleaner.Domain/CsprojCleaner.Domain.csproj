@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\FileExtensions.cs" />
+    <Compile Include="Constants\Extensions.cs" />
     <Compile Include="Contracts\IFolderService.cs" />
     <Compile Include="Contracts\ILogService.cs" />
     <Compile Include="Contracts\IProjectService.cs" />

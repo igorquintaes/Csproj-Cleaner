@@ -13,15 +13,10 @@ namespace CsprojCleaner.Domain.Constants
                 "*.csproj",
                 "*.fsproj",
                 "*.vbproj",
-                "*.modelproj",
                 "*.lsproj",
                 "*.vcxproj",
                 "*.ls3proj",
-                "*.jsproj",
-                "*.dbproj",
-                "*.oradbproj",
-                "*.msbuildproj",
-                "*.sqlproj"
+                "*.jsproj"
             };
         }
     }

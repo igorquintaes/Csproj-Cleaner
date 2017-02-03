@@ -4,9 +4,6 @@ namespace CsprojCleaner.Domain.Contracts
 {
     public interface IFolderService
     {
-        IEnumerable<string> ProjectExtensions { get; }
-
-        void SetProjectExtensions(List<string> extensions);
-        IEnumerable<string> GetAllProjectPathFromAFolder(string folder);
+        IEnumerable<string> GetAllProjectPathFromAFolder(string folder, List<string> extensions);
     }
 }

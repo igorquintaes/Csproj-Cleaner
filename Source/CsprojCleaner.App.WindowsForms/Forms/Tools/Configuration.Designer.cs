@@ -1,4 +1,6 @@
-﻿namespace CsprojCleaner.App.WindowsForms.Forms.Tools
+﻿using System.Collections.Generic;
+
+namespace CsprojCleaner.App.WindowsForms.Forms.Tools
 {
     partial class Configuration
     {
@@ -57,10 +59,6 @@
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Test1",
-            "Test2",
-            "Test3"});
             this.checkedListBox1.Location = new System.Drawing.Point(12, 81);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
@@ -124,5 +122,7 @@
         private System.Windows.Forms.Label extencions;
         private System.Windows.Forms.Button saveConfiguration;
         private System.Windows.Forms.Button cancelButton;
+
+        private List<string> extensionList;
     }
 }

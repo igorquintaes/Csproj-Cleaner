@@ -148,7 +148,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             List<string> files;
             lock (stateLock)
             {
-                files = _folderService.GetAllProjectPathFromAFolder(ProjDir.Text).ToList();
+                var extensions = UserSettings.RecoverAllowedExtensions().ToList();
+                files = _folderService.GetAllProjectPathFromAFolder(ProjDir.Text, extensions).ToList();
                 _countItems = files.Count;
                 currentCount = 10;
             }

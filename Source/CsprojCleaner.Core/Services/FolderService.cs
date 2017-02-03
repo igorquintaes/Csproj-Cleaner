@@ -18,24 +18,14 @@ namespace CsprojCleaner.Core.Services
             _logService = logService;
         }
 
-        public IEnumerable<string> ProjectExtensions { get; private set; }
-
-        public void SetProjectExtensions(List<string> extensions)
-        {
-            if (!extensions.All(x => Extensions.SupportedExtensions.Contains(x)))
-                throw new InvalidDataException("Extensão não suportada!");
-
-            ProjectExtensions = extensions;
-        }
-
-        public IEnumerable<string> GetAllProjectPathFromAFolder(string folder)
+        public IEnumerable<string> GetAllProjectPathFromAFolder(string folder, List<string> extensions)
         {
             try
             {
-                if (ProjectExtensions == null || !ProjectExtensions.Any())
-                    ProjectExtensions = Extensions.SupportedExtensions;
+                if (extensions == null || !extensions.Any())
+                    extensions = Extensions.SupportedExtensions;
 
-                var files = ProjectExtensions
+                var files = extensions
                     .SelectMany(x => Directory.EnumerateFiles(folder, x, SearchOption.AllDirectories))
                     .ToList();
 

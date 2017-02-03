@@ -44,5 +44,16 @@ namespace CsprojCleaner.App.WindowsForms.Properties {
                 this["LogFolderPaths"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection AllowedExtensions {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["AllowedExtensions"]));
+            }
+            set {
+                this["AllowedExtensions"] = value;
+            }
+        }
     }
 }
