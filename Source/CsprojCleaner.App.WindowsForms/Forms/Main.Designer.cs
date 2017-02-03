@@ -104,7 +104,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             // 
             // LogoImage
             // 
-            this.LogoImage.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.eguru_logo;
+            this.LogoImage.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.image_logo;
             this.LogoImage.Location = new System.Drawing.Point(400, 75);
             this.LogoImage.Name = "LogoImage";
             this.LogoImage.Size = new System.Drawing.Size(120, 111);
