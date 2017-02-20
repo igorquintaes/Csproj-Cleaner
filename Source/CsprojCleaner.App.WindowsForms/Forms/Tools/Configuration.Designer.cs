@@ -33,7 +33,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.language = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.extencions = new System.Windows.Forms.Label();
+            this.extensions = new System.Windows.Forms.Label();
             this.saveConfiguration = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -45,6 +45,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.DisplayMember = "Text";
+            this.comboBox1.ValueMember = "Value";
             // 
             // language
             // 
@@ -64,14 +66,14 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
             this.checkedListBox1.TabIndex = 2;
             // 
-            // extencions
+            // extensions
             // 
-            this.extencions.AutoSize = true;
-            this.extencions.Location = new System.Drawing.Point(9, 65);
-            this.extencions.Name = "extencions";
-            this.extencions.Size = new System.Drawing.Size(102, 13);
-            this.extencions.TabIndex = 3;
-            this.extencions.Text = "Extensions to clean:";
+            this.extensions.AutoSize = true;
+            this.extensions.Location = new System.Drawing.Point(9, 65);
+            this.extensions.Name = "extensions";
+            this.extensions.Size = new System.Drawing.Size(102, 13);
+            this.extensions.TabIndex = 3;
+            this.extensions.Text = "Extensions to clean:";
             // 
             // saveConfiguration
             // 
@@ -100,7 +102,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveConfiguration);
-            this.Controls.Add(this.extencions);
+            this.Controls.Add(this.extensions);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.language);
             this.Controls.Add(this.comboBox1);
@@ -119,7 +121,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label language;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Label extencions;
+        private System.Windows.Forms.Label extensions;
         private System.Windows.Forms.Button saveConfiguration;
         private System.Windows.Forms.Button cancelButton;
 

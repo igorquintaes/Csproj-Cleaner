@@ -39,6 +39,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.ProjDir.Size = new System.Drawing.Size(340, 20);
             this.ProjDir.TabIndex = 1;
             this.ProjDir.TextChanged += new System.EventHandler(this.ProjDir_TextChanged);
+            this.ProjDir.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.ProjDir.AutoCompleteSource = AutoCompleteSource.CustomSource;
             // 
             // LabelLogFolder
             // 
@@ -91,6 +93,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LogDir.Size = new System.Drawing.Size(340, 20);
             this.LogDir.TabIndex = 3;
             this.LogDir.TextChanged += new System.EventHandler(this.LogDir_TextChanged);
+            this.LogDir.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.LogDir.AutoCompleteSource = AutoCompleteSource.CustomSource;
             // 
             // LabelProjectFolder
             // 
@@ -104,7 +108,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             // 
             // LogoImage
             // 
-            this.LogoImage.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.image_logo;
+            this.LogoImage.Image = Image.FromFile("Resources/logo.png");
             this.LogoImage.Location = new System.Drawing.Point(400, 75);
             this.LogoImage.Name = "LogoImage";
             this.LogoImage.Size = new System.Drawing.Size(120, 111);
@@ -199,6 +203,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.Controls.Add(this.ProjDir);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Main";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Csproj Cleaner";
             this.Load += new System.EventHandler(this.Main_Load);

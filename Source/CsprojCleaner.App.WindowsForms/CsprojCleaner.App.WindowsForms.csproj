@@ -90,6 +90,7 @@
       <DependentUpon>Saved.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectSettings\LanguageSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProjectSettings\UserSettings.cs" />
     <EmbeddedResource Include="Forms\Help\About.resx">
@@ -104,16 +105,8 @@
     <EmbeddedResource Include="Forms\Tools\Saved.resx">
       <DependentUpon>Saved.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Resources\Language.en-US.resx" />
+    <EmbeddedResource Include="Resources\Language.pt-BR.resx" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

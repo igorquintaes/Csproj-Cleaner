@@ -34,6 +34,10 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         {
             UserSettings.RememberAllowedExtensions(checkedListBox1.CheckedItems.Cast<string>().ToList());
 
+            var language = (comboBox1.SelectedItem as dynamic).Value.ToString();
+            UserSettings.RememberLanguage(language);
+            LanguageSettings.ChangeLanguage(language);
+
             var savedForm = new Saved();
             savedForm.Show();
 
@@ -54,7 +58,18 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
 
         private void ManageLanguageList()
         {
-           // todo
+
+            this.comboBox1.DataSource = LanguageSettings.Languages;
+            this.comboBox1.SelectedIndex = 0;
+            
+            for (var i = 0; i < LanguageSettings.Languages.Count(); i++)
+            {
+                if (LanguageSettings.CurrentCulture.Name == (LanguageSettings.Languages[i] as dynamic).Value.ToString())
+                {
+                    this.comboBox1.SelectedIndex = i;
+                    break;
+                }
+            }
         }
     }
 }
