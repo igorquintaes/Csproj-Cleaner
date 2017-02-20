@@ -14,8 +14,6 @@ namespace CsprojCleaner.App.WindowsForms.ProjectSettings
         private static CultureInfo _currentCulture;
         public static CultureInfo CurrentCulture { get { return _currentCulture; } }
 
-        public static ResourceManager Resources;
-
         public static object[] Languages
         {
             get
@@ -27,19 +25,16 @@ namespace CsprojCleaner.App.WindowsForms.ProjectSettings
             }
         }
 
-        static LanguageSettings()
-        {
-            _currentCulture = CultureInfo.CreateSpecificCulture(UserSettings.RecoverLanguage());
-
-            Resources = new ResourceManager("Language", typeof(Program).Assembly);
-        }
-
         public static void ChangeLanguage(string culture)
         {
-            _currentCulture = CultureInfo.CreateSpecificCulture(UserSettings.RecoverLanguage());
-
-            Thread.CurrentThread.CurrentCulture = _currentCulture;
+            _currentCulture = CultureInfo.GetCultureInfo(culture);
+            
             Thread.CurrentThread.CurrentUICulture = _currentCulture;
+        }
+
+        public static void Initialize()
+        {
+            ChangeLanguage(UserSettings.RecoverLanguage());
         }
     }
 }

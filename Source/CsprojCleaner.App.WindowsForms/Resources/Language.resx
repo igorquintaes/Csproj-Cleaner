@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CleanProjects" xml:space="preserve">
-    <value>Executar Limpeza!</value>
+    <value>Clean Projects!</value>
   </data>
   <data name="ErrorExceptionVerifyLog" xml:space="preserve">
-    <value>Erro. Verifique o log para mais informações.</value>
+    <value>Error. Check log for more information.</value>
   </data>
   <data name="ErrorFolderExceptionVerifyLog" xml:space="preserve">
-    <value>Erro (ReadFolderException). Verifique o log para mais informações.</value>
+    <value>Error (ReadFolderException). Check log for more information.</value>
   </data>
   <data name="ErrorLogExceptionInitialize" xml:space="preserve">
-    <value>Erro ao instanciar log de erros:</value>
+    <value>Falied to load or create error log:</value>
   </data>
   <data name="FinishedClickToRunAgain" xml:space="preserve">
-    <value>Concluído. Clique para executar novamente.</value>
+    <value>Finished! Click to run again.</value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>Carregando...</value>
+    <value>Loading...</value>
   </data>
   <data name="VerifyIfAllDirsAreFilled" xml:space="preserve">
-    <value>Verifique se todos os diretórios foram preenchidos.</value>
+    <value>Verify if all directories are filled.</value>
   </data>
   <data name="Warning" xml:space="preserve">
-    <value>Atenção!</value>
+    <value>Warning!</value>
   </data>
 </root>

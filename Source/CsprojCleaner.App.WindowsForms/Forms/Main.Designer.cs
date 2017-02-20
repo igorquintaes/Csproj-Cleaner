@@ -108,7 +108,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             // 
             // LogoImage
             // 
-            this.LogoImage.Image = Image.FromFile("Resources/logo.png");
+            this.LogoImage.Image = global::CsprojCleaner.App.WindowsForms.Properties.Resources.Logo;
             this.LogoImage.Location = new System.Drawing.Point(400, 75);
             this.LogoImage.Name = "LogoImage";
             this.LogoImage.Size = new System.Drawing.Size(120, 111);

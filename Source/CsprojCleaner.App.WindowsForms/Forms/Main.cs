@@ -11,6 +11,7 @@ using CsprojCleaner.App.WindowsForms.ProjectSettings;
 using CsprojCleaner.App.WindowsForms.Extensions;
 using CsprojCleaner.App.WindowsForms.Forms.Help;
 using CsprojCleaner.App.WindowsForms.Forms.Tools;
+using CsprojCleaner.App.WindowsForms.Resources;
 
 namespace CsprojCleaner.App.WindowsForms.Forms
 {
@@ -31,7 +32,9 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             _projectService = projectService;
             _folderService = folderService;
 
+            LanguageSettings.Initialize();
             InitializeComponent();
+            LoadTexts();
 
             autoCompleteProjectPaths.AddRange(UserSettings.RecoverProjectPaths().ToArray());
             autoCompleteLogPaths.AddRange(UserSettings.RecoverLogPaths().ToArray());
@@ -72,7 +75,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
 
             try
             {
-                CleanButton.Text = LanguageSettings.Resources.GetString("Resources.Loading");
+                CleanButton.Text = Language.Loading;
                 CleanButton.Enabled = false;
 
                 var t = new Thread(ThreadClean) { IsBackground = true };
@@ -80,16 +83,16 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             }
             catch (InitializeLogException)
             {
-                CleanButton.Text = LanguageSettings.Resources.GetString("ErrorLogExceptionInitialize");
+                CleanButton.Text = Language.ErrorLogExceptionInitialize;
             }
             catch (ReadFolderException)
             {
-                CleanButton.Text = LanguageSettings.Resources.GetString("ErrorFolderExceptionVerifyLog");
+                CleanButton.Text = Language.ErrorFolderExceptionVerifyLog;
                 _logService.WriteError(_logService.ConsoleLog);
             }
             catch (Exception ex)
             {
-                CleanButton.Text = LanguageSettings.Resources.GetString("ErrorExceptionVerifyLog");
+                CleanButton.Text = Language.ErrorExceptionVerifyLog;
                 _logService.WriteError(ex.Message);
             }
 
@@ -100,8 +103,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
         {
             if (String.IsNullOrEmpty(ProjDir.Text))
             {
-                MessageBox.Show(LanguageSettings.Resources.GetString("VerifyIfAllDirsAreFilled"),
-                                LanguageSettings.Resources.GetString("Warning"));
+                MessageBox.Show(Language.VerifyIfAllDirsAreFilled, Language.Warning);
                 return false;
             }
 
@@ -185,7 +187,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
         private void Finish()
         {
             CleanButton.Enabled = true;
-            CleanButton.Text = LanguageSettings.Resources.GetString("FinishedClickToRunAgain");
+            CleanButton.Text = Language.FinishedClickToRunAgain;
             LoadingBar.Value = 100;
         }
 
@@ -244,6 +246,12 @@ namespace CsprojCleaner.App.WindowsForms.Forms
         {
             About aboutForm = new About();
             aboutForm.Show();
+        }
+
+
+        private void LoadTexts()
+        {
+            this.CleanButton.Text = Language.CleanProjects;
         }
     }
 }
