@@ -55,7 +55,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.language.Name = "language";
             this.language.Size = new System.Drawing.Size(58, 13);
             this.language.TabIndex = 1;
-            this.language.Text = "Language:";
             this.language.Click += new System.EventHandler(this.label1_Click);
             // 
             // checkedListBox1
@@ -73,7 +72,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.extensions.Name = "extensions";
             this.extensions.Size = new System.Drawing.Size(102, 13);
             this.extensions.TabIndex = 3;
-            this.extensions.Text = "Extensions to clean:";
             // 
             // saveConfiguration
             // 
@@ -81,7 +79,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.saveConfiguration.Name = "saveConfiguration";
             this.saveConfiguration.Size = new System.Drawing.Size(75, 23);
             this.saveConfiguration.TabIndex = 4;
-            this.saveConfiguration.Text = "Save";
             this.saveConfiguration.UseVisualStyleBackColor = true;
             this.saveConfiguration.Click += new System.EventHandler(this.saveBtn_Click);
             // 
@@ -91,7 +88,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
@@ -109,8 +105,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Configuration";
-            this.Text = "Configuration";
+            this.Name = "Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
 

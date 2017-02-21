@@ -38,7 +38,6 @@
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(75, 23);
             this.closeBtn.TabIndex = 0;
-            this.closeBtn.Text = "Close";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
@@ -50,7 +49,6 @@
             this.savedSuccefull.Name = "savedSuccefull";
             this.savedSuccefull.Size = new System.Drawing.Size(150, 26);
             this.savedSuccefull.TabIndex = 1;
-            this.savedSuccefull.Text = "Your configuration was saved succefull!";
             // 
             // Saved
             // 
@@ -59,11 +57,10 @@
             this.ClientSize = new System.Drawing.Size(189, 126);
             this.Controls.Add(this.savedSuccefull);
             this.Controls.Add(this.closeBtn);
+            this.Name = "saved";
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Saved";
-            this.Text = "Saved";
             this.ResumeLayout(false);
             this.PerformLayout();
 

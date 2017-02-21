@@ -109,13 +109,13 @@ namespace CsprojCleaner.App.WindowsForms.Forms
 
             if (!Directory.Exists(ProjDir.Text))
             {
-                MessageBox.Show("O diretório de projetos não existe. Por favor, selecione um diretório válido.");
+                MessageBox.Show(Language.InvalidProjectFolder);
                 return false;
             }
 
             if (_logService.SaveLog && !Directory.Exists(LogDir.Text))
             {
-                MessageBox.Show("O diretório de log não existe. Por favor, selecione um diretório válido.");
+                MessageBox.Show(Language.InvalidLogFolder);
                 return false;
             }
 
@@ -191,6 +191,20 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             LoadingBar.Value = 100;
         }
 
+        private void LoadTexts()
+        {
+            this.CleanButton.Text = Language.CleanProjects;
+            this.LabelLogFolder.Text = Language.SaveLogDir;
+            this.StepsLabelTitle.Text = Language.Steps;
+            this.StepsLabelDescription.Text = Language.StepsDescription;
+            this.LabelProjectFolder.Text = Language.TargetFolder;
+            this.toolsToolStripMenuItem.Text = Language.Tools;
+            this.helpToolStripMenuItem.Text = Language.Help;
+            this.aboutToolStripMenuItem.Text = Language.About;
+            this.settingsToolStripMenuItem.Text = Language.Settings;
+
+        }
+
         private void LoadingBar_Click(object sender, EventArgs e)
         {
 
@@ -246,12 +260,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
         {
             About aboutForm = new About();
             aboutForm.Show();
-        }
-
-
-        private void LoadTexts()
-        {
-            this.CleanButton.Text = Language.CleanProjects;
         }
     }
 }

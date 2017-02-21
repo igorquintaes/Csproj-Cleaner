@@ -28,8 +28,9 @@ namespace CsprojCleaner.App.WindowsForms.ProjectSettings
         public static void ChangeLanguage(string culture)
         {
             _currentCulture = CultureInfo.GetCultureInfo(culture);
-            
+
             Thread.CurrentThread.CurrentUICulture = _currentCulture;
+            Thread.CurrentThread.CurrentCulture = _currentCulture;
         }
 
         public static void Initialize()

@@ -31,11 +31,11 @@ namespace CsprojCleaner.Core.Services
 
                 if (!files.Any())
                 {
-                    _logService.WriteStatus("Não foram encontrados arquivos de projeto no caminho especificado.");
+                    _logService.WriteStatus("Projects files was not found inside the specified folder.");
                     return new List<string>();
                 }
 
-                files.ForEach(x => _logService.WriteStatus(String.Format("Arquivo encontrado: {0}", x)));
+                files.ForEach(x => _logService.WriteStatus(String.Format("Files found: {0}", x)));
                 return files;
             }
             catch (Exception e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsprojCleaner.App.WindowsForms.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         public Saved()
         {
             InitializeComponent();
+            LoadTexts();
+        }
+
+        private void LoadTexts()
+        {
+            this.closeBtn.Text = Language.Close;
+            this.Text = Language.Saved;
+            this.savedSuccefull.Text = Language.SuccefullSavedConfig;
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)

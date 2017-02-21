@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutSourceCodeIn" xml:space="preserve">
+    <value>It is an Open Source project. All the application and code can be find in:</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="CleanProjects" xml:space="preserve">
     <value>Clean Projects!</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
   </data>
   <data name="ErrorExceptionVerifyLog" xml:space="preserve">
     <value>Error. Check log for more information.</value>
@@ -129,11 +141,53 @@
   <data name="ErrorLogExceptionInitialize" xml:space="preserve">
     <value>Falied to load or create error log:</value>
   </data>
+  <data name="ExtensionsToClear" xml:space="preserve">
+    <value>Extensions to clear:</value>
+  </data>
   <data name="FinishedClickToRunAgain" xml:space="preserve">
     <value>Finished! Click to run again.</value>
   </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="InvalidLogFolder" xml:space="preserve">
+    <value>The selected log folder does not exists. Please, select a valid folder.</value>
+  </data>
+  <data name="InvalidProjectFolder" xml:space="preserve">
+    <value>The selected project folder does not exists. Please, select a valid folder.</value>
+  </data>
+  <data name="LanguageStr" xml:space="preserve">
+    <value>Language:</value>
+  </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading...</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="SaveLogDir" xml:space="preserve">
+    <value>Save log directory:</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Steps" xml:space="preserve">
+    <value>Steps:</value>
+  </data>
+  <data name="StepsDescription" xml:space="preserve">
+    <value>Insert a valid directory to all project files inside the folder or subfolder be cleaned. The action will start after the button "Clean Projects!" be pressed.</value>
+  </data>
+  <data name="SuccefullSavedConfig" xml:space="preserve">
+    <value>Your configuration was saved succefull!</value>
+  </data>
+  <data name="TargetFolder" xml:space="preserve">
+    <value>Target folder:</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
   </data>
   <data name="VerifyIfAllDirsAreFilled" xml:space="preserve">
     <value>Verify if all directories are filled.</value>

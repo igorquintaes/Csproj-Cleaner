@@ -22,7 +22,7 @@ namespace CsprojCleaner.Core.Services
             {
                 BeforeClean();
 
-                _logService.WriteStatus("Arquivo: " + file);
+                _logService.WriteStatus("File: " + file);
 
                 var engine = new ProjectCollection { DefaultToolsVersion = "4.0" };
                 var csproj = engine.LoadProject(file);
@@ -83,7 +83,7 @@ namespace CsprojCleaner.Core.Services
             }
             catch (IOException)
             {
-                _logService.WriteError("Erro ao atualizar o arquivo " + fullPath);
+                _logService.WriteError("Error when tried to update file " + fullPath);
             }
         }
 
@@ -91,12 +91,12 @@ namespace CsprojCleaner.Core.Services
         {
             if (countDuplicated == 0)
             {
-                _logService.WriteStatus("Não foram encontrados itens duplicados");
+                _logService.WriteStatus("No duplicated items was found.");
                 _logService.WriteStatus(String.Empty);
                 return false;
             }
 
-            _logService.WriteStatus(String.Format("Foram encontrados {0} itens duplicados.", countDuplicated));
+            _logService.WriteStatus(String.Format("Was found {0} duplicated items.", countDuplicated));
             _logService.WriteStatus(String.Empty);
             return true;
         }
@@ -104,13 +104,13 @@ namespace CsprojCleaner.Core.Services
         private void BeforeClean()
         {
             _logService.WriteStatus(String.Empty);
-            _logService.WriteStatus("Preparando-se para executar a limpeza...");
+            _logService.WriteStatus("Preparing to execute the cleaner...");
             _logService.WriteStatus(String.Empty);
         }
 
         private void AfterClean()
         {
-            _logService.WriteStatus("Limpeza executada com sucesso.");
+            _logService.WriteStatus("Cleaner runned succefull.");
         }
     }
 }

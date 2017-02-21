@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsprojCleaner.App.WindowsForms.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
         public About()
         {
             InitializeComponent();
+            LoadTexts();
+        }
+
+        private void LoadTexts()
+        {
+            this.sourceCodeIn.Text = Language.AboutSourceCodeIn;
+            this.closeBtn.Text = Language.Close;
+            this.Name = Language.About;
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -23,13 +23,13 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.FolderCsproj = new System.Windows.Forms.FolderBrowserDialog();
             this.FolderLog = new System.Windows.Forms.FolderBrowserDialog();
             this.LoadingBar = new System.Windows.Forms.ProgressBar();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripOptions = new System.Windows.Forms.MenuStrip();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImage)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.menuStripOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProjDir
@@ -49,7 +49,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LabelLogFolder.Name = "LabelLogFolder";
             this.LabelLogFolder.Size = new System.Drawing.Size(223, 13);
             this.LabelLogFolder.TabIndex = 1;
-            this.LabelLogFolder.Text = "Diretório da pasta de armazenamento de logs:";
             this.LabelLogFolder.Click += new System.EventHandler(this.LabelLogFolder_Click);
             // 
             // StepsLabelTitle
@@ -60,7 +59,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.StepsLabelTitle.Name = "StepsLabelTitle";
             this.StepsLabelTitle.Size = new System.Drawing.Size(80, 13);
             this.StepsLabelTitle.TabIndex = 2;
-            this.StepsLabelTitle.Text = "Procedimentos:";
             this.StepsLabelTitle.Click += new System.EventHandler(this.StepsLabelTitle_Click);
             // 
             // StepsLabelDescription
@@ -71,9 +69,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.StepsLabelDescription.Name = "StepsLabelDescription";
             this.StepsLabelDescription.Size = new System.Drawing.Size(509, 26);
             this.StepsLabelDescription.TabIndex = 2;
-            this.StepsLabelDescription.Text = "Insira um diretório válido para que todos os arquivos csproj dentro dele ou de su" +
-    "as subpastas sejam limpos. A limpeza iniciará assim que o botão \"Executar Limpez" +
-    "a\" for clicado.";
             this.StepsLabelDescription.Click += new System.EventHandler(this.StepsLabelDescription_Click);
             // 
             // CleanButton
@@ -82,7 +77,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.CleanButton.Name = "CleanButton";
             this.CleanButton.Size = new System.Drawing.Size(373, 23);
             this.CleanButton.TabIndex = 4;
-            this.CleanButton.Text = "Executar Limpeza";
             this.CleanButton.UseVisualStyleBackColor = true;
             this.CleanButton.Click += new System.EventHandler(this.RunProjectCleaner);
             // 
@@ -146,44 +140,40 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(534, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripOptions.Location = new System.Drawing.Point(0, 0);
+            this.menuStripOptions.Name = "menuStrip1";
+            this.menuStripOptions.Size = new System.Drawing.Size(534, 24);
+            this.menuStripOptions.TabIndex = 7;
+            this.menuStripOptions.Text = "menuStrip1";
             // 
             // ferramentasToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configurationToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
+            this.settingsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.toolsToolStripMenuItem.Text = "Ferramentas";
             // 
             // ajudaToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.helpToolStripMenuItem.Text = "Ajuda";
             // 
             // sobreToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "Sobre";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // opçõesToolStripMenuItem
             // 
-            this.configurationToolStripMenuItem.Name = "opçõesToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.configurationToolStripMenuItem.Text = "Opções";
-            this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -201,15 +191,15 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.Controls.Add(this.LabelLogFolder);
             this.Controls.Add(this.LogDir);
             this.Controls.Add(this.ProjDir);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripOptions);
             this.Name = "Main";
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Csproj Cleaner";
+            this.Text = "Project Cleaner";
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LogoImage)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripOptions.ResumeLayout(false);
+            this.menuStripOptions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,10 +223,10 @@ namespace CsprojCleaner.App.WindowsForms.Forms
         readonly object stateLock = new object();
         int currentCount;
         private System.Windows.Forms.ProgressBar LoadingBar;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripOptions;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 
         AutoCompleteStringCollection autoCompleteProjectPaths = new AutoCompleteStringCollection();

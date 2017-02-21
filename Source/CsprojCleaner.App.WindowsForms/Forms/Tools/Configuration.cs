@@ -1,4 +1,5 @@
 ﻿using CsprojCleaner.App.WindowsForms.ProjectSettings;
+using CsprojCleaner.App.WindowsForms.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,18 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         public Configuration()
         {
             InitializeComponent();
+            LoadTexts();
             ManageCheckboxList();
             ManageLanguageList();
+        }
+
+        private void LoadTexts()
+        {
+            this.language.Text = Language.LanguageStr;
+            this.extensions.Text = Language.ExtensionsToClear;
+            this.saveConfiguration.Text = Language.Save;
+            this.cancelButton.Text = Language.Cancel;
+            this.Text = Language.Settings;
         }
 
         private void label1_Click(object sender, EventArgs e)

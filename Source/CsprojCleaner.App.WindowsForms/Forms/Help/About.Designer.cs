@@ -28,33 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label authorName;
-            this.contribuitors = new System.Windows.Forms.Label();
             this.sourceCodeIn = new System.Windows.Forms.Label();
             this.linkSource = new System.Windows.Forms.LinkLabel();
             this.closeBtn = new System.Windows.Forms.Button();
-            authorName = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // authorName
-            // 
-            authorName.AutoSize = true;
-            authorName.Location = new System.Drawing.Point(12, 88);
-            authorName.Name = "authorName";
-            authorName.Size = new System.Drawing.Size(179, 13);
-            authorName.TabIndex = 1;
-            authorName.Text = "igorquintaes, VitorLuizC, dhustkoder.";
-            authorName.Click += new System.EventHandler(this.authorName_Click);
-            // 
-            // contribuitors
-            // 
-            this.contribuitors.AutoSize = true;
-            this.contribuitors.Location = new System.Drawing.Point(12, 75);
-            this.contribuitors.Name = "contribuitors";
-            this.contribuitors.Size = new System.Drawing.Size(68, 13);
-            this.contribuitors.TabIndex = 0;
-            this.contribuitors.Text = "Contribuitors:";
-            this.contribuitors.Click += new System.EventHandler(this.developedBy_Click);
             // 
             // sourceCodeIn
             // 
@@ -64,7 +41,6 @@
             this.sourceCodeIn.Name = "sourceCodeIn";
             this.sourceCodeIn.Size = new System.Drawing.Size(249, 26);
             this.sourceCodeIn.TabIndex = 2;
-            this.sourceCodeIn.Text = "It is an Open Source project. All the application and code can be find in:";
             this.sourceCodeIn.Click += new System.EventHandler(this.label1_Click);
             // 
             // linkSource
@@ -80,11 +56,10 @@
             // 
             // closeBtn
             // 
-            this.closeBtn.Location = new System.Drawing.Point(197, 118);
+            this.closeBtn.Location = new System.Drawing.Point(109, 91);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(75, 23);
             this.closeBtn.TabIndex = 4;
-            this.closeBtn.Text = "Close";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
@@ -92,25 +67,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 151);
+            this.ClientSize = new System.Drawing.Size(284, 126);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.linkSource);
             this.Controls.Add(this.sourceCodeIn);
-            this.Controls.Add(authorName);
-            this.Controls.Add(this.contribuitors);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "About";
-            this.Text = "About";
+            this.Text = "about";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label contribuitors;
         private System.Windows.Forms.Label sourceCodeIn;
         private System.Windows.Forms.LinkLabel linkSource;
         private System.Windows.Forms.Button closeBtn;
