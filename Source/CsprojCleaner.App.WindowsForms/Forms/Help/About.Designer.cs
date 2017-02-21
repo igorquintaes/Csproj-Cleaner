@@ -1,4 +1,7 @@
-﻿namespace CsprojCleaner.App.WindowsForms.Forms.Help
+﻿using System.Linq;
+using static System.Windows.Forms.LinkLabel;
+
+namespace CsprojCleaner.App.WindowsForms.Forms.Help
 {
     partial class About
     {
@@ -53,6 +56,7 @@
             this.linkSource.TabStop = true;
             this.linkSource.Text = "https://github.com/igorquintaes/Csproj-Cleaner";
             this.linkSource.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSource_LinkClicked);
+            this.linkSource.Links.Add(0, this.linkSource.Text.Count(), this.linkSource.Text);
             // 
             // closeBtn
             // 

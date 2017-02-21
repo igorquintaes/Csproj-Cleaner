@@ -48,6 +48,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
 
         private void linkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            var target = e.Link.LinkData as string;
+            System.Diagnostics.Process.Start(target);
 
         }
     }
