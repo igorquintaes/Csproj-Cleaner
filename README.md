@@ -3,6 +3,9 @@
 This application can be used to remove somes references that was duplicated inside project files, as .csproj, .vsproj and  others Visual Studio project files. Some of the duplicated references can broke solution - it can be unable to build or run. Other cases, like files that are not used in build proccess but as resource, the duplicated reference will not broke the solution, but show a two or more times the same file in Solution Explorer windows. Both cases the application works to remove these invalid references.
 
 
+![Preview](https://raw.githubusercontent.com/igorquintaes/Csproj-Cleaner/master/example-duplicated.png)
+
+
 # How to use
 
 1. Open the application if you have the .exe, or just run the solution to open the program.
