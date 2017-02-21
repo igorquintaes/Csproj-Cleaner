@@ -25,29 +25,29 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LoadingBar = new System.Windows.Forms.ProgressBar();
             this.menuStripOptions = new System.Windows.Forms.MenuStrip();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImage)).BeginInit();
             this.menuStripOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProjDir
             // 
+            this.ProjDir.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ProjDir.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ProjDir.Location = new System.Drawing.Point(45, 116);
             this.ProjDir.Name = "ProjDir";
             this.ProjDir.Size = new System.Drawing.Size(340, 20);
             this.ProjDir.TabIndex = 1;
             this.ProjDir.TextChanged += new System.EventHandler(this.ProjDir_TextChanged);
-            this.ProjDir.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.ProjDir.AutoCompleteSource = AutoCompleteSource.CustomSource;
             // 
             // LabelLogFolder
             // 
             this.LabelLogFolder.AutoSize = true;
             this.LabelLogFolder.Location = new System.Drawing.Point(9, 150);
             this.LabelLogFolder.Name = "LabelLogFolder";
-            this.LabelLogFolder.Size = new System.Drawing.Size(223, 13);
+            this.LabelLogFolder.Size = new System.Drawing.Size(0, 13);
             this.LabelLogFolder.TabIndex = 1;
             this.LabelLogFolder.Click += new System.EventHandler(this.LabelLogFolder_Click);
             // 
@@ -57,7 +57,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.StepsLabelTitle.BackColor = System.Drawing.SystemColors.Control;
             this.StepsLabelTitle.Location = new System.Drawing.Point(9, 37);
             this.StepsLabelTitle.Name = "StepsLabelTitle";
-            this.StepsLabelTitle.Size = new System.Drawing.Size(80, 13);
+            this.StepsLabelTitle.Size = new System.Drawing.Size(0, 13);
             this.StepsLabelTitle.TabIndex = 2;
             this.StepsLabelTitle.Click += new System.EventHandler(this.StepsLabelTitle_Click);
             // 
@@ -67,7 +67,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.StepsLabelDescription.Location = new System.Drawing.Point(9, 59);
             this.StepsLabelDescription.MaximumSize = new System.Drawing.Size(510, 0);
             this.StepsLabelDescription.Name = "StepsLabelDescription";
-            this.StepsLabelDescription.Size = new System.Drawing.Size(509, 26);
+            this.StepsLabelDescription.Size = new System.Drawing.Size(0, 13);
             this.StepsLabelDescription.TabIndex = 2;
             this.StepsLabelDescription.Click += new System.EventHandler(this.StepsLabelDescription_Click);
             // 
@@ -82,13 +82,13 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             // 
             // LogDir
             // 
+            this.LogDir.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.LogDir.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.LogDir.Location = new System.Drawing.Point(45, 166);
             this.LogDir.Name = "LogDir";
             this.LogDir.Size = new System.Drawing.Size(340, 20);
             this.LogDir.TabIndex = 3;
             this.LogDir.TextChanged += new System.EventHandler(this.LogDir_TextChanged);
-            this.LogDir.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.LogDir.AutoCompleteSource = AutoCompleteSource.CustomSource;
             // 
             // LabelProjectFolder
             // 
@@ -97,7 +97,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LabelProjectFolder.Name = "LabelProjectFolder";
             this.LabelProjectFolder.Size = new System.Drawing.Size(142, 13);
             this.LabelProjectFolder.TabIndex = 1;
-            this.LabelProjectFolder.Text = "Diretório da pasta de .csproj:";
             this.LabelProjectFolder.Click += new System.EventHandler(this.LabelProjectFolder_Click);
             // 
             // LogoImage
@@ -138,42 +137,42 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LoadingBar.TabIndex = 6;
             this.LoadingBar.Click += new System.EventHandler(this.LoadingBar_Click);
             // 
-            // menuStrip1
+            // menuStripOptions
             // 
             this.menuStripOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStripOptions.Location = new System.Drawing.Point(0, 0);
-            this.menuStripOptions.Name = "menuStrip1";
+            this.menuStripOptions.Name = "menuStripOptions";
             this.menuStripOptions.Size = new System.Drawing.Size(534, 24);
             this.menuStripOptions.TabIndex = 7;
             this.menuStripOptions.Text = "menuStrip1";
             // 
-            // ferramentasToolStripMenuItem
+            // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
-            // ajudaToolStripMenuItem
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
-            // sobreToolStripMenuItem
+            // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // opçõesToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -192,8 +191,9 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.Controls.Add(this.LogDir);
             this.Controls.Add(this.ProjDir);
             this.Controls.Add(this.menuStripOptions);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Main";
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Project Cleaner";
             this.Load += new System.EventHandler(this.Main_Load);
