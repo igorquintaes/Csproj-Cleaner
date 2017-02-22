@@ -91,6 +91,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProjectSettings\LanguageSettings.cs" />
+    <Compile Include="ProjectSettings\NonExistentFilesSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProjectSettings\UserSettings.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

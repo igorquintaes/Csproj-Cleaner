@@ -22,6 +22,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             LoadTexts();
             ManageCheckboxList();
             ManageLanguageList();
+            ManageNonExistentFilesList();
             ManageEvents();
         }
 
@@ -38,6 +39,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.saveConfiguration.Text = Language.Save;
             this.cancelButton.Text = Language.Cancel;
             this.Text = Language.Settings;
+            this.nonExistentFilesWarning.Text = Language.WarningNonExistentFiles;
+            this.NonExistentFilesLabel.Text = Language.NonExistentFiles;
         }
 
         private void ManageEvents()
@@ -59,10 +62,15 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         {
             UserSettings.RememberAllowedExtensions(checkedListBox1.CheckedItems.Cast<string>().ToList());
 
-            var language = (comboBox1.SelectedItem as dynamic).Value.ToString();
+            var action = (nonExistentFilesBox.SelectedItem as dynamic).Value;
+            UserSettings.RememberNonExistentFilesAction(action);
+            NonExistentFilesSettings.ChangeAction(action);
+
+            var language = (languageBox.SelectedItem as dynamic).Value.ToString();
             UserSettings.RememberLanguage(language);
             LanguageSettings.ChangeLanguage(language);
 
+            
             var form = Saved.GetInstance();
             if (!form.Visible)
                 form.Show();
@@ -87,22 +95,47 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         private void ManageLanguageList()
         {
 
-            this.comboBox1.DataSource = LanguageSettings.Languages;
-            this.comboBox1.SelectedIndex = 0;
+            this.languageBox.DataSource = LanguageSettings.Languages;
+            this.languageBox.SelectedIndex = 0;
             
             for (var i = 0; i < LanguageSettings.Languages.Count(); i++)
             {
                 if (LanguageSettings.CurrentCulture.Name == (LanguageSettings.Languages[i] as dynamic).Value.ToString())
                 {
-                    this.comboBox1.SelectedIndex = i;
+                    this.languageBox.SelectedIndex = i;
                     break;
                 }
             }
+        }
+        private void ManageNonExistentFilesList()
+        {
+            this.nonExistentFilesBox.DataSource = NonExistentFilesSettings.Actions;
+            this.nonExistentFilesBox.SelectedIndex = 0;
+
+            for (var i = 0; i < NonExistentFilesSettings.Actions.Count(); i++)
+            {
+                if (NonExistentFilesSettings.Action == (NonExistentFilesSettings.Actions[i] as dynamic).Value)
+                {
+                    this.nonExistentFilesBox.SelectedIndex = i;
+                    break;
+                }
+            }
+
+            if (NonExistentFilesSettings.Action == Domain.Enums.NonExistentFilesAction.Nothing)
+                this.nonExistentFilesWarning.Visible = false;
         }
 
         private void Configuration_FormClosing(object sender, FormClosedEventArgs e)
         {
             _instance = null;
+        }
+
+        private void nonExistentFilesBox_Changed(object sender, EventArgs e)
+        {
+            if ((nonExistentFilesBox.SelectedItem as dynamic).Value == Domain.Enums.NonExistentFilesAction.Nothing)
+                this.nonExistentFilesWarning.Visible = false;
+            else
+                this.nonExistentFilesWarning.Visible = true;
         }
     }
 }

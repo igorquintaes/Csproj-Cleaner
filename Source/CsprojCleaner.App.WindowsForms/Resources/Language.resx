@@ -195,4 +195,19 @@
   <data name="Warning" xml:space="preserve">
     <value>Warning!</value>
   </data>
+  <data name="NonExistentFiles" xml:space="preserve">
+    <value>Non existent files action:</value>
+  </data>
+  <data name="NonExistentFilesActionLog" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="NonExistentFilesActionLogDelete" xml:space="preserve">
+    <value>Log and delete</value>
+  </data>
+  <data name="NonExistentFilesActionNothing" xml:space="preserve">
+    <value>Nothing</value>
+  </data>
+  <data name="WarningNonExistentFiles" xml:space="preserve">
+    <value>Warning! This options will make program runs slow!</value>
+  </data>
 </root>

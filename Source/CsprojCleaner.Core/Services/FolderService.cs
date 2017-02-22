@@ -18,6 +18,11 @@ namespace CsprojCleaner.Core.Services
             _logService = logService;
         }
 
+        public IEnumerable<string> GetAllProjectPathFromAFolder(string folder)
+        {
+            return GetAllProjectPathFromAFolder(folder, Extensions.SupportedExtensions);
+        }
+
         public IEnumerable<string> GetAllProjectPathFromAFolder(string folder, List<string> extensions)
         {
             try

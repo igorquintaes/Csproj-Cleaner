@@ -1,3 +1,4 @@
+using CsprojCleaner.App.WindowsForms.Resources;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -176,6 +177,15 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             // 
             // Main
             // 
+            this.CleanButton.Text = Language.CleanProjects;
+            this.LabelLogFolder.Text = Language.SaveLogDir;
+            this.StepsLabelTitle.Text = Language.Steps;
+            this.StepsLabelDescription.Text = Language.StepsDescription;
+            this.LabelProjectFolder.Text = Language.TargetFolder;
+            this.toolsToolStripMenuItem.Text = Language.Tools;
+            this.helpToolStripMenuItem.Text = Language.Help;
+            this.aboutToolStripMenuItem.Text = Language.About;
+            this.settingsToolStripMenuItem.Text = Language.Settings;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 236);

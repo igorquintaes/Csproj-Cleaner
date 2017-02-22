@@ -1,4 +1,6 @@
-﻿namespace CsprojCleaner.App.WindowsForms.Forms.Tools
+﻿using CsprojCleaner.App.WindowsForms.Resources;
+
+namespace CsprojCleaner.App.WindowsForms.Forms.Tools
 {
     partial class Saved
     {
@@ -52,6 +54,9 @@
             // 
             // Saved
             // 
+            this.closeBtn.Text = Language.Close;
+            this.Text = Language.Saved;
+            this.savedSuccefull.Text = Language.SuccefullSavedConfig;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(189, 126);

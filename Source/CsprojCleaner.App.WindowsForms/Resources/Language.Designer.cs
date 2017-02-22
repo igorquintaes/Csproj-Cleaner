@@ -196,6 +196,42 @@ namespace CsprojCleaner.App.WindowsForms.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Non existent files action:.
+        /// </summary>
+        internal static string NonExistentFiles {
+            get {
+                return ResourceManager.GetString("NonExistentFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log.
+        /// </summary>
+        internal static string NonExistentFilesActionLog {
+            get {
+                return ResourceManager.GetString("NonExistentFilesActionLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log and delete.
+        /// </summary>
+        internal static string NonExistentFilesActionLogDelete {
+            get {
+                return ResourceManager.GetString("NonExistentFilesActionLogDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing.
+        /// </summary>
+        internal static string NonExistentFilesActionNothing {
+            get {
+                return ResourceManager.GetString("NonExistentFilesActionNothing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string Save {
@@ -291,6 +327,15 @@ namespace CsprojCleaner.App.WindowsForms.Resources {
         internal static string Warning {
             get {
                 return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning! This options will make program runs slow!.
+        /// </summary>
+        internal static string WarningNonExistentFiles {
+            get {
+                return ResourceManager.GetString("WarningNonExistentFiles", resourceCulture);
             }
         }
     }

@@ -67,5 +67,17 @@ namespace CsprojCleaner.App.WindowsForms.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Nothing")]
+        public global::CsprojCleaner.Domain.Enums.NonExistentFilesAction NonExistentFilesAction {
+            get {
+                return ((global::CsprojCleaner.Domain.Enums.NonExistentFilesAction)(this["NonExistentFilesAction"]));
+            }
+            set {
+                this["NonExistentFilesAction"] = value;
+            }
+        }
     }
 }

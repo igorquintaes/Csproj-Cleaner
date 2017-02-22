@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using CsprojCleaner.App.WindowsForms.Resources;
+using System.Linq;
 using static System.Windows.Forms.LinkLabel;
 
 namespace CsprojCleaner.App.WindowsForms.Forms.Help
@@ -56,7 +57,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
             this.linkSource.TabStop = true;
             this.linkSource.Text = "https://github.com/igorquintaes/Csproj-Cleaner";
             this.linkSource.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSource_LinkClicked);
-            this.linkSource.Links.Add(0, this.linkSource.Text.Count(), this.linkSource.Text);
+            this.linkSource.Links.Add(0, this.linkSource.Text.Length, this.linkSource.Text);
             // 
             // closeBtn
             // 
@@ -69,6 +70,9 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
             // 
             // About
             // 
+            this.sourceCodeIn.Text = Language.AboutSourceCodeIn;
+            this.closeBtn.Text = Language.Close;
+            this.Name = Language.About;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 126);

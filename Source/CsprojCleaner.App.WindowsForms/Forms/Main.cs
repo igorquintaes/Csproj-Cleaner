@@ -33,6 +33,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             _folderService = folderService;
 
             LanguageSettings.Initialize();
+            NonExistentFilesSettings.Initialize();
+
             InitializeComponent();
             LoadTexts();
             ManageEvents();
@@ -161,7 +163,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             {
                 lock (stateLock)
                 {
-                    _projectService.Clean(t);
+                    _projectService.Clean(t, NonExistentFilesSettings.Action);
                     _countLoop++;
                 }
 

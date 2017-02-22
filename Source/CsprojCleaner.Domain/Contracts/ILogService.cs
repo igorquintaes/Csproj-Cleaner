@@ -1,4 +1,6 @@
-﻿namespace CsprojCleaner.Domain.Contracts
+﻿using System.Collections.Generic;
+
+namespace CsprojCleaner.Domain.Contracts
 {
     public interface ILogService
     {
@@ -12,5 +14,6 @@
         void WriteError(string lines);
         void SetConsoleLog(string message);
         void SetSaveLog(bool save);
+        void WriteNonExistentFiles(string project, List<string> files);
     }
 }

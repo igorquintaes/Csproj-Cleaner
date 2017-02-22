@@ -1,4 +1,5 @@
 ﻿using CsprojCleaner.App.WindowsForms.Properties;
+using CsprojCleaner.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -79,6 +80,22 @@ namespace CsprojCleaner.App.WindowsForms.ProjectSettings
             return String.IsNullOrEmpty(Settings.Default.Language)
                 ? defaultCulture
                 : Settings.Default.Language;
+        }
+
+
+
+
+
+
+        internal static void RememberNonExistentFilesAction(NonExistentFilesAction action)
+        {
+            Settings.Default.NonExistentFilesAction = action;
+            Settings.Default.Save();
+        }
+
+        internal static NonExistentFilesAction RecoverNonExistentFilesAction()
+        {
+            return Settings.Default.NonExistentFilesAction;
         }
     }
 }

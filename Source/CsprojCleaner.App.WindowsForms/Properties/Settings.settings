@@ -14,5 +14,8 @@
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="NonExistentFilesAction" Type="CsprojCleaner.Domain.Enums.NonExistentFilesAction" Scope="User">
+      <Value Profile="(Default)">Nothing</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

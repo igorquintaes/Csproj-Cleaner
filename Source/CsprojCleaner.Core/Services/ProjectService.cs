@@ -52,9 +52,10 @@ namespace CsprojCleaner.Core.Services
                         continue;
                     }
 
+
                     // Non existent files
                     if (action != NonExistentFilesAction.Nothing &&
-                        !File.Exists(file + "\\" + projectItem.Xml.Include))
+                        !File.Exists(Path.GetDirectoryName(file) + "\\" + projectItem.Xml.Include))
                     {
                         nonExistentItems.Add(projectItem.Xml.Include);
 
@@ -69,6 +70,7 @@ namespace CsprojCleaner.Core.Services
                 }
 
                 itensToRemove.ForEach(x => csproj.RemoveItem(x));
+                _logService.WriteNonExistentFiles(file, nonExistentItems);
 
                 if (!ResolveIfNoDuplicatedItens(duplicatedCount)) return;
 

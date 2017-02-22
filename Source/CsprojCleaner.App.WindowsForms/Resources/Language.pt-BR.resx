@@ -195,4 +195,19 @@
   <data name="Warning" xml:space="preserve">
     <value>Atenção!</value>
   </data>
+  <data name="NonExistentFiles" xml:space="preserve">
+    <value>Arquivos inexistentes:</value>
+  </data>
+  <data name="NonExistentFilesActionLog" xml:space="preserve">
+    <value>Salvar em log</value>
+  </data>
+  <data name="NonExistentFilesActionLogAndDelete" xml:space="preserve">
+    <value>Salvar em log e deletar referências</value>
+  </data>
+  <data name="NonExistentFilesActionNothing" xml:space="preserve">
+    <value>Sem ação</value>
+  </data>
+  <data name="WarningNonExistentFiles" xml:space="preserve">
+    <value>Atenção! Esta opção fará o programa rodar devagar!</value>
+  </data>
 </root>
