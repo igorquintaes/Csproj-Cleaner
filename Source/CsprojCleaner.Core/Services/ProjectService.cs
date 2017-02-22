@@ -26,10 +26,6 @@ namespace CsprojCleaner.Core.Services
         {
             try
             {
-                BeforeClean();
-
-                _logService.WriteStatus("File: " + file);
-
                 var engine = new ProjectCollection { DefaultToolsVersion = "4.0" };
                 var csproj = engine.LoadProject(file);
                 var duplicatedCount = 0;
@@ -52,7 +48,6 @@ namespace CsprojCleaner.Core.Services
                         continue;
                     }
 
-
                     // Non existent files
                     if (action != NonExistentFilesAction.Nothing &&
                         !File.Exists(Path.GetDirectoryName(file) + "\\" + projectItem.Xml.Include))
@@ -70,27 +65,24 @@ namespace CsprojCleaner.Core.Services
                 }
 
                 itensToRemove.ForEach(x => csproj.RemoveItem(x));
+                _logService.WriteStatus(file, itensToRemove.Select(x => x.Xml.Include).ToList());
                 _logService.WriteNonExistentFiles(file, nonExistentItems);
 
-                if (!ResolveIfNoDuplicatedItens(duplicatedCount)) return;
+                if (!itensToRemove.Any()) return;
 
                 UpdateCsprojFile(file, csproj);
             }
             catch (UnauthorizedAccessException uaEx)
             {
-                _logService.WriteError(uaEx.Message);
+                _logService.WriteError(file, "Unauthorized Access. Details: " + uaEx.Message);
             }
             catch (PathTooLongException pathEx)
             {
-                _logService.WriteError(pathEx.Message);
+                _logService.WriteError(file, "Path Too Long. Details: " + pathEx.Message);
             }
             catch(Exception e)
             {
-                _logService.WriteError(e.Message);
-            }
-            finally
-            {
-                AfterClean();
+                _logService.WriteError(file, e.Message);
             }
         }
 
@@ -107,34 +99,8 @@ namespace CsprojCleaner.Core.Services
             }
             catch (IOException)
             {
-                _logService.WriteError("Error when tried to update file " + fullPath);
+                _logService.WriteError(fullPath, "Error when tried to update file " + fullPath);
             }
-        }
-
-        private bool ResolveIfNoDuplicatedItens(int countDuplicated)
-        {
-            if (countDuplicated == 0)
-            {
-                _logService.WriteStatus("No duplicated items was found.");
-                _logService.WriteStatus(String.Empty);
-                return false;
-            }
-
-            _logService.WriteStatus(String.Format("Was found {0} duplicated items.", countDuplicated));
-            _logService.WriteStatus(String.Empty);
-            return true;
-        }
-
-        private void BeforeClean()
-        {
-            _logService.WriteStatus(String.Empty);
-            _logService.WriteStatus("Preparing to execute the cleaner...");
-            _logService.WriteStatus(String.Empty);
-        }
-
-        private void AfterClean()
-        {
-            _logService.WriteStatus("Cleaner runned succefull.");
         }
     }
 }

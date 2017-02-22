@@ -36,11 +36,11 @@ namespace CsprojCleaner.Core.Services
 
                 if (!files.Any())
                 {
-                    _logService.WriteStatus("Projects files was not found inside the specified folder.");
+                    _logService.WriteStatus(String.Empty, new List<string>() { "Projects files was not found inside the specified folder." });
                     return new List<string>();
                 }
 
-                files.ForEach(x => _logService.WriteStatus(String.Format("Files found: {0}", x)));
+                _logService.WriteStatus("Project files found:", files);
                 return files;
             }
             catch (Exception e)

@@ -29,37 +29,13 @@ namespace CsprojCleaner.Core.Services
                     Directory.CreateDirectory(path);
 
                 LogStatus = string.Format("{0}\\{1}{2}.txt", path, date, "-DUPLICATES");
-                if (!File.Exists(LogStatus))
-                {
-                    var fileStatus = File.Create(LogStatus);
-                    fileStatus.Close();
-
-                    var file = new StreamWriter(LogStatus, true);
-                    file.WriteLine("Initialized at: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-                    file.Close();
-                }
+                CreateLog(LogStatus);
 
                 LogError = string.Format("{0}\\{1}{2}.txt", path, date, "-ERROR");
-                if (!File.Exists(LogError))
-                {
-                    var fileError = File.Create(LogError);
-                    fileError.Close();
-
-                    var file = new StreamWriter(LogError, true);
-                    file.WriteLine("Initialized at: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-                    file.Close();
-                }
+                CreateLog(LogError);
 
                 LogNonExistentFiles = string.Format("{0}\\{1}{2}.txt", path, date, "-NONEXISTENT");
-                if (!File.Exists(LogNonExistentFiles))
-                {
-                    var fileError = File.Create(LogNonExistentFiles);
-                    fileError.Close();
-
-                    var file = new StreamWriter(LogNonExistentFiles, true);
-                    file.WriteLine("Initialized at: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-                    file.Close();
-                }
+                CreateLog(LogNonExistentFiles);
             }
             catch (Exception e)
             {
@@ -68,41 +44,44 @@ namespace CsprojCleaner.Core.Services
             }
         }
 
-        public void WriteStatus(string lines)
+        public void WriteStatus(string titleLog, List<string> logItems)
         {
-            if (!SaveLog) return;
-
-            if (string.IsNullOrEmpty(LogStatus)) throw new Exception("Invalid log path.");
-
-            var file = new StreamWriter(LogStatus, true);
-            file.WriteLine(String.IsNullOrEmpty(lines) ? String.Empty : DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + " " + lines);
-            file.Close();
+            WriteLog(LogStatus, titleLog, logItems);
         }
 
-        public void WriteError(string lines)
+        public void WriteError(string titleLog, string error)
         {
-            if (!SaveLog) return;
-            if (string.IsNullOrEmpty(LogError)) throw new Exception("Invalid log path.");
-
-            var file = new StreamWriter(LogError, true);
-            file.WriteLine(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + " " + lines);
-            file.WriteLine(String.Empty);
-            file.Close();
+            WriteLog(LogError, titleLog, new List<string>()
+            {
+                DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + " " + error
+            });
         }
 
-        public void WriteNonExistentFiles(string project, List<string> files)
+        public void WriteNonExistentFiles(string titleLog, List<string> logItems)
         {
-            if (!SaveLog) return;
+            WriteLog(LogNonExistentFiles, titleLog, logItems);
+        }
 
-            if (string.IsNullOrEmpty(LogNonExistentFiles)) throw new Exception("Invalid log path.");
+        private void WriteLog(string log, string titleLog, List<string> logItems)
+        {
+            if (!SaveLog)
+                return;
 
-            var file = new StreamWriter(LogNonExistentFiles, true);
-            file.WriteLine("Project Name: " + project);
+            if (string.IsNullOrEmpty(log))
+                throw new Exception("Invalid log path.");
 
-            if (files == null || !files.Any())
-                file.WriteLine("No non-existent files was found.");
+            var file = new StreamWriter(log, true);
+
+            if(!String.IsNullOrEmpty(titleLog))
+                file.WriteLine(titleLog);
+
+            if (logItems == null || !logItems.Any())
+                file.WriteLine("No results.");
             else
-                files.ForEach(x => file.WriteLine("Duplicated:   " + x));
+            {
+                file.WriteLine(logItems.Count() + " results");
+                logItems.ForEach(x => file.WriteLine("Item:         " + x));
+            }
 
             file.WriteLine(String.Empty);
             file.Close();
@@ -116,6 +95,19 @@ namespace CsprojCleaner.Core.Services
         public void SetSaveLog(bool save)
         {
             SaveLog = save;
+        }
+
+        private void CreateLog(string log)
+        {
+            if (!File.Exists(log))
+            {
+                var file = File.Create(log);
+                file.Close();
+
+                var stream = new StreamWriter(log, true);
+                stream.WriteLine("Initialized at: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                stream.Close();
+            }
         }
     }
 }

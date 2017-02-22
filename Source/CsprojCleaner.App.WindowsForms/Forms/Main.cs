@@ -96,12 +96,12 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             catch (ReadFolderException)
             {
                 CleanButton.Text = Language.ErrorFolderExceptionVerifyLog;
-                _logService.WriteError(_logService.ConsoleLog);
+                _logService.WriteError(String.Empty, _logService.ConsoleLog);
             }
             catch (Exception ex)
             {
                 CleanButton.Text = Language.ErrorExceptionVerifyLog;
-                _logService.WriteError(ex.Message);
+                _logService.WriteError(String.Empty, ex.Message);
             }
 
             CleanButton.Enabled = true;

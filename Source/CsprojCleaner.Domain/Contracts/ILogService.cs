@@ -10,10 +10,10 @@ namespace CsprojCleaner.Domain.Contracts
         string ConsoleLog { get; }
 
         void InitializeLog(string path);
-        void WriteStatus(string lines);
-        void WriteError(string lines);
+        void WriteStatus(string project, List<string> files);
+        void WriteNonExistentFiles(string project, List<string> files);
+        void WriteError(string project, string error);
         void SetConsoleLog(string message);
         void SetSaveLog(bool save);
-        void WriteNonExistentFiles(string project, List<string> files);
     }
 }
