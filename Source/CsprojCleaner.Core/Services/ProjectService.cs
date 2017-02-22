@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using CsprojCleaner.Domain.Contracts;
 using Microsoft.Build.Evaluation;
+using CsprojCleaner.Domain.Enums;
 
 namespace CsprojCleaner.Core.Services
 {
@@ -18,6 +19,11 @@ namespace CsprojCleaner.Core.Services
 
         public void Clean(string file)
         {
+            Clean(file, NonExistentFilesAction.Nothing);
+        }
+
+        public void Clean(string file, NonExistentFilesAction action)
+        {
             try
             {
                 BeforeClean();
@@ -26,29 +32,45 @@ namespace CsprojCleaner.Core.Services
 
                 var engine = new ProjectCollection { DefaultToolsVersion = "4.0" };
                 var csproj = engine.LoadProject(file);
-                var quantidadeDuplicatas = 0;
+                var duplicatedCount = 0;
 
                 if (csproj.Items.Count == 0)
                     return;
 
                 var currentReferences = new HashSet<string>();
                 var itensToRemove = new List<ProjectItem>();
+                
+                var nonExistentItems = new List<string>();
 
                 foreach (var projectItem in csproj.Items.Where(projectItem => projectItem.ItemType == "Content" || projectItem.ItemType == "Compile"))
                 {
-                    if (!currentReferences.Contains(projectItem.Xml.Include))
+                    // Duplicated files
+                    if (currentReferences.Contains(projectItem.Xml.Include))
                     {
-                        currentReferences.Add(projectItem.Xml.Include);
+                        itensToRemove.Add(projectItem);
+                        duplicatedCount++;
                         continue;
                     }
 
-                    itensToRemove.Add(projectItem);
-                    quantidadeDuplicatas ++;
+                    // Non existent files
+                    if (action != NonExistentFilesAction.Nothing &&
+                        !File.Exists(file + "\\" + projectItem.Xml.Include))
+                    {
+                        nonExistentItems.Add(projectItem.Xml.Include);
+
+                        if (action == NonExistentFilesAction.LogAndDelete)
+                        {
+                            itensToRemove.Add(projectItem);
+                            continue;
+                        }
+                    }
+
+                    currentReferences.Add(projectItem.Xml.Include);
                 }
 
                 itensToRemove.ForEach(x => csproj.RemoveItem(x));
 
-                if (!ResolveIfNoDuplicatedItens(quantidadeDuplicatas)) return;
+                if (!ResolveIfNoDuplicatedItens(duplicatedCount)) return;
 
                 UpdateCsprojFile(file, csproj);
             }
