@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 
 namespace CsprojCleaner.App.WindowsForms.ProjectSettings
 {
+    public delegate void LanguageChangedEventHandler();
+
     public static class LanguageSettings
     {
         private static CultureInfo _currentCulture;
         public static CultureInfo CurrentCulture { get { return _currentCulture; } }
+
+        public static event LanguageChangedEventHandler LanguageChanged;
 
         public static object[] Languages
         {
@@ -27,10 +31,15 @@ namespace CsprojCleaner.App.WindowsForms.ProjectSettings
 
         public static void ChangeLanguage(string culture)
         {
+            if (_currentCulture != null && 
+                _currentCulture.Name == culture) return;
+
             _currentCulture = CultureInfo.GetCultureInfo(culture);
 
             Thread.CurrentThread.CurrentUICulture = _currentCulture;
             Thread.CurrentThread.CurrentCulture = _currentCulture;
+
+            LanguageChanged?.Invoke();
         }
 
         public static void Initialize()

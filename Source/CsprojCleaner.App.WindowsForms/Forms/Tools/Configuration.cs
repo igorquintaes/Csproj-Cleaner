@@ -20,6 +20,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             LoadTexts();
             ManageCheckboxList();
             ManageLanguageList();
+            ManageEvents();
         }
 
         private void LoadTexts()
@@ -29,6 +30,11 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.saveConfiguration.Text = Language.Save;
             this.cancelButton.Text = Language.Cancel;
             this.Text = Language.Settings;
+        }
+
+        private void ManageEvents()
+        {
+            LanguageSettings.LanguageChanged += new LanguageChangedEventHandler(LoadTexts);
         }
 
         private void label1_Click(object sender, EventArgs e)

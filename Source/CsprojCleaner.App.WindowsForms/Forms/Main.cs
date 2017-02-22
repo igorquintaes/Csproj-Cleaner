@@ -35,6 +35,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             LanguageSettings.Initialize();
             InitializeComponent();
             LoadTexts();
+            ManageEvents();
 
             autoCompleteProjectPaths.AddRange(UserSettings.RecoverProjectPaths().ToArray());
             autoCompleteLogPaths.AddRange(UserSettings.RecoverLogPaths().ToArray());
@@ -42,7 +43,12 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.ProjDir.AutoCompleteCustomSource = autoCompleteProjectPaths;
             this.LogDir.AutoCompleteCustomSource = autoCompleteLogPaths;
         }
-        
+
+        private void ManageEvents()
+        {
+            LanguageSettings.LanguageChanged += new LanguageChangedEventHandler(LoadTexts);
+        }
+
         private void LoadCsprojFolder(object sender, EventArgs e)
         {
             if (FolderCsproj.ShowDialog() == DialogResult.OK)

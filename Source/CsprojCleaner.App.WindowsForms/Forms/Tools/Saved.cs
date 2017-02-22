@@ -1,4 +1,5 @@
-﻿using CsprojCleaner.App.WindowsForms.Resources;
+﻿using CsprojCleaner.App.WindowsForms.ProjectSettings;
+using CsprojCleaner.App.WindowsForms.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,12 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         {
             InitializeComponent();
             LoadTexts();
+            ManageEvents();
+        }
+        
+        private void ManageEvents()
+        {
+            LanguageSettings.LanguageChanged += new LanguageChangedEventHandler(LoadTexts);
         }
 
         private void LoadTexts()
