@@ -2,19 +2,27 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CsprojCleaner.Domain.Contracts;
 using Microsoft.Build.Evaluation;
 
 namespace CsprojCleaner.Core.Services
 {
-    public class ProjectService
+    public class ProjectService : IProjectService
     {
-        public static void Clean(string file)
+        private readonly ILogService _logService;
+
+        public ProjectService(ILogService logService)
+        {
+            _logService = logService;
+        }
+
+        public void Clean(string file)
         {
             try
             {
                 BeforeClean();
 
-                LogService.WriteStatus("Arquivo: " + file);
+                _logService.WriteStatus("File: " + file);
 
                 var engine = new ProjectCollection { DefaultToolsVersion = "4.0" };
                 var csproj = engine.LoadProject(file);
@@ -46,15 +54,15 @@ namespace CsprojCleaner.Core.Services
             }
             catch (UnauthorizedAccessException uaEx)
             {
-                LogService.WriteError(uaEx.Message);
+                _logService.WriteError(uaEx.Message);
             }
             catch (PathTooLongException pathEx)
             {
-                LogService.WriteError(pathEx.Message);
+                _logService.WriteError(pathEx.Message);
             }
             catch(Exception e)
             {
-                LogService.WriteError(e.Message);
+                _logService.WriteError(e.Message);
             }
             finally
             {
@@ -62,7 +70,7 @@ namespace CsprojCleaner.Core.Services
             }
         }
 
-        private static void UpdateCsprojFile(string fullPath, Project csproj)
+        private void UpdateCsprojFile(string fullPath, Project csproj)
         {
             try
             {
@@ -75,34 +83,34 @@ namespace CsprojCleaner.Core.Services
             }
             catch (IOException)
             {
-                LogService.WriteError("Erro ao atualizar o arquivo " + fullPath);
+                _logService.WriteError("Error when tried to update file " + fullPath);
             }
         }
 
-        private static bool ResolveIfNoDuplicatedItens(int countDuplicated)
+        private bool ResolveIfNoDuplicatedItens(int countDuplicated)
         {
             if (countDuplicated == 0)
             {
-                LogService.WriteStatus("Não foram encontrados itens duplicados");
-                LogService.WriteStatus(String.Empty);
+                _logService.WriteStatus("No duplicated items was found.");
+                _logService.WriteStatus(String.Empty);
                 return false;
             }
 
-            LogService.WriteStatus(String.Format("Foram encontrados {0} itens duplicados.", countDuplicated));
-            LogService.WriteStatus(String.Empty);
+            _logService.WriteStatus(String.Format("Was found {0} duplicated items.", countDuplicated));
+            _logService.WriteStatus(String.Empty);
             return true;
         }
 
-        private static void BeforeClean()
+        private void BeforeClean()
         {
-            LogService.WriteStatus(String.Empty);
-            LogService.WriteStatus("Preparando-se para executar a limpeza...");
-            LogService.WriteStatus(String.Empty);
+            _logService.WriteStatus(String.Empty);
+            _logService.WriteStatus("Preparing to execute the cleaner...");
+            _logService.WriteStatus(String.Empty);
         }
 
-        private static void AfterClean()
+        private void AfterClean()
         {
-            LogService.WriteStatus("Limpeza executada com sucesso.");
+            _logService.WriteStatus("Cleaner runned succefull.");
         }
     }
 }

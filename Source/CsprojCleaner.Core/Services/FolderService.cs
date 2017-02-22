@@ -1,48 +1,47 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using CsprojCleaner.Core.Constants;
-using CsprojCleaner.Core.Exceptions;
+using CsprojCleaner.Domain.Constants;
+using CsprojCleaner.Domain.Contracts;
+using CsprojCleaner.Domain.Exceptions;
 
 namespace CsprojCleaner.Core.Services
 {
-    public class FolderService
+    public class FolderService : IFolderService
     {
-        public static IEnumerable<string> ProjectExtensions { get; private set; }
+        
+        private readonly ILogService _logService;
 
-        public void SetProjectExtensions(List<string> extensions)
+        public FolderService(ILogService logService)
         {
-            if (!extensions.All(x => Extensions.SupportedExtensions.Contains(x)))
-                throw new InvalidDataException("Extensão não suportada!");
-
-            ProjectExtensions = extensions;
+            _logService = logService;
         }
 
-        public static IEnumerable<string> GetAllProjectPathFromAFolder(string folder)
+        public IEnumerable<string> GetAllProjectPathFromAFolder(string folder, List<string> extensions)
         {
             try
             {
-                if (ProjectExtensions == null || !ProjectExtensions.Any())
-                    ProjectExtensions = Extensions.SupportedExtensions;
+                if (extensions == null || !extensions.Any())
+                    extensions = Extensions.SupportedExtensions;
 
-                var files = ProjectExtensions
+                var files = extensions
                     .SelectMany(x => Directory.EnumerateFiles(folder, x, SearchOption.AllDirectories))
                     .ToList();
 
                 if (!files.Any())
                 {
-                    LogService.WriteStatus("Não foram encontrados arquivos de projeto no caminho especificado.");
+                    _logService.WriteStatus("Projects files was not found inside the specified folder.");
                     return new List<string>();
                 }
 
-                files.ForEach(x => LogService.WriteStatus(String.Format("Arquivo encontrado: {0}", x)));
+                files.ForEach(x => _logService.WriteStatus(String.Format("Files found: {0}", x)));
                 return files;
             }
             catch (Exception e)
             {
-                LogService.ConsoleLog = e.Message;
-                throw new FolderException();
+                _logService.SetConsoleLog(e.Message);
+                throw new ReadFolderException();
             }
         }
     }

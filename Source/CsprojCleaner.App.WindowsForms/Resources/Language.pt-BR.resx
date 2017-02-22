@@ -117,8 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="About" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="AboutSourceCodeIn" xml:space="preserve">
+    <value>Project Cleaner é um projeto Open Source. Toda a aplicação e seu respectivo código fonde pode ser encontrado em:</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="CleanProjects" xml:space="preserve">
+    <value>Executar Limpeza!</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="ErrorExceptionVerifyLog" xml:space="preserve">
+    <value>Erro. Verifique o log para mais informações.</value>
+  </data>
+  <data name="ErrorFolderExceptionVerifyLog" xml:space="preserve">
+    <value>Erro (ReadFolderException). Verifique o log para mais informações.</value>
+  </data>
+  <data name="ErrorLogExceptionInitialize" xml:space="preserve">
+    <value>Erro ao instanciar log de erros:</value>
+  </data>
+  <data name="ExtensionsToClear" xml:space="preserve">
+    <value>Extensões para limpeza:</value>
+  </data>
+  <data name="FinishedClickToRunAgain" xml:space="preserve">
+    <value>Concluído. Clique para executar novamente.</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Ajuda</value>
+  </data>
+  <data name="InvalidLogFolder" xml:space="preserve">
+    <value>O diretório de logs não existe. Por favor, selecione um diretório válido.</value>
+  </data>
+  <data name="InvalidProjectFolder" xml:space="preserve">
+    <value>O diretório de projetos não existe. Por favor, selecione um diretório válido.</value>
+  </data>
+  <data name="LanguageStr" xml:space="preserve">
+    <value>Idioma:</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Carregando...</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Salvo</value>
+  </data>
+  <data name="SaveLogDir" xml:space="preserve">
+    <value>Diretório da pasta de armazenamento de logs:</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
+  <data name="Steps" xml:space="preserve">
+    <value>Procedimentos:</value>
+  </data>
+  <data name="StepsDescription" xml:space="preserve">
+    <value>Insira um diretório válido para que todos os arquivos de projeto dentro dele ou de suas subpastas sejam limpos. A limpeza iniciará assim que o botão "Executar Limpeza!" for clicado.</value>
+  </data>
+  <data name="SuccefullSavedConfig" xml:space="preserve">
+    <value>Sua configuração foi salva com sucesso!</value>
+  </data>
+  <data name="TargetFolder" xml:space="preserve">
+    <value>Diretório de execução:</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Ferramentas</value>
+  </data>
+  <data name="VerifyIfAllDirsAreFilled" xml:space="preserve">
+    <value>Verifique se todos os diretórios foram preenchidos.</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Atenção!</value>
   </data>
 </root>

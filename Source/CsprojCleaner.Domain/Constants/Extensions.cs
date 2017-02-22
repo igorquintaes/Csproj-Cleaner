@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace CsprojCleaner.Core.Constants
+namespace CsprojCleaner.Domain.Constants
 {
     public static class Extensions
     {
@@ -17,15 +13,10 @@ namespace CsprojCleaner.Core.Constants
                 "*.csproj",
                 "*.fsproj",
                 "*.vbproj",
-                "*.modelproj",
                 "*.lsproj",
                 "*.vcxproj",
                 "*.ls3proj",
-                "*.jsproj",
-                "*.dbproj",
-                "*.oradbproj",
-                "*.msbuildproj",
-                "*.sqlproj"
+                "*.jsproj"
             };
         }
     }
