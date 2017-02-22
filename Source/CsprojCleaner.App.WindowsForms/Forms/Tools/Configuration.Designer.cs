@@ -40,12 +40,12 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             // 
             // comboBox1
             // 
+            this.comboBox1.DisplayMember = "Text";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(12, 29);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
-            this.comboBox1.DisplayMember = "Text";
             this.comboBox1.ValueMember = "Value";
             // 
             // language
@@ -53,7 +53,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.language.AutoSize = true;
             this.language.Location = new System.Drawing.Point(9, 13);
             this.language.Name = "language";
-            this.language.Size = new System.Drawing.Size(58, 13);
+            this.language.Size = new System.Drawing.Size(0, 13);
             this.language.TabIndex = 1;
             this.language.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -70,7 +70,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.extensions.AutoSize = true;
             this.extensions.Location = new System.Drawing.Point(9, 65);
             this.extensions.Name = "extensions";
-            this.extensions.Size = new System.Drawing.Size(102, 13);
+            this.extensions.Size = new System.Drawing.Size(0, 13);
             this.extensions.TabIndex = 3;
             // 
             // saveConfiguration
@@ -105,7 +105,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Settings";
+            this.Name = "Configuration";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Configuration_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

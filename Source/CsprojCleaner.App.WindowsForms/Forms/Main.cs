@@ -258,14 +258,20 @@ namespace CsprojCleaner.App.WindowsForms.Forms
 
         private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Configuration configurationForm = new Configuration();
-            configurationForm.Show();
+            var form = Configuration.GetInstance();
+            if (!form.Visible)
+                form.Show();
+            else
+                form.BringToFront();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            About aboutForm = new About();
-            aboutForm.Show();
+            var form = About.GetInstance();
+            if (!form.Visible)
+                form.Show();
+            else
+                form.BringToFront();
         }
     }
 }

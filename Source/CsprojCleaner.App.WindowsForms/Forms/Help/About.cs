@@ -14,11 +14,19 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
 {
     public partial class About : Form
     {
+        private static About _instance;
+        
         public About()
         {
             InitializeComponent();
             LoadTexts();
             ManageEvents();
+        }
+
+        public static About GetInstance()
+        {
+            if (_instance == null) _instance = new About();
+            return _instance;
         }
 
         private void ManageEvents()
@@ -58,6 +66,10 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
             var target = e.Link.LinkData as string;
             System.Diagnostics.Process.Start(target);
 
+        }
+        private void About_FormClosing(object sender, FormClosedEventArgs e)
+        {
+            _instance = null;
         }
     }
 }

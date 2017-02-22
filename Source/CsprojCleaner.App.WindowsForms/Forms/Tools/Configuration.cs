@@ -14,6 +14,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
 {
     public partial class Configuration : Form
     {
+        public static Configuration _instance;
+
         public Configuration()
         {
             InitializeComponent();
@@ -21,6 +23,12 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             ManageCheckboxList();
             ManageLanguageList();
             ManageEvents();
+        }
+
+        public static Configuration GetInstance()
+        {
+            if (_instance == null) _instance = new Configuration();
+            return _instance;
         }
 
         private void LoadTexts()
@@ -55,8 +63,11 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             UserSettings.RememberLanguage(language);
             LanguageSettings.ChangeLanguage(language);
 
-            var savedForm = new Saved();
-            savedForm.Show();
+            var form = Saved.GetInstance();
+            if (!form.Visible)
+                form.Show();
+            else
+                form.BringToFront();
 
             this.Close();
         }
@@ -87,6 +98,11 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
                     break;
                 }
             }
+        }
+
+        private void Configuration_FormClosing(object sender, FormClosedEventArgs e)
+        {
+            _instance = null;
         }
     }
 }

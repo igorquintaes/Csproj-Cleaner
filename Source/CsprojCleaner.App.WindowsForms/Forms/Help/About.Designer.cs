@@ -79,6 +79,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Text = "about";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.About_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

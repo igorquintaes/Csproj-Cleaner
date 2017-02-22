@@ -47,7 +47,7 @@
             this.savedSuccefull.Location = new System.Drawing.Point(12, 9);
             this.savedSuccefull.MaximumSize = new System.Drawing.Size(175, 0);
             this.savedSuccefull.Name = "savedSuccefull";
-            this.savedSuccefull.Size = new System.Drawing.Size(150, 26);
+            this.savedSuccefull.Size = new System.Drawing.Size(0, 13);
             this.savedSuccefull.TabIndex = 1;
             // 
             // Saved
@@ -57,10 +57,11 @@
             this.ClientSize = new System.Drawing.Size(189, 126);
             this.Controls.Add(this.savedSuccefull);
             this.Controls.Add(this.closeBtn);
-            this.Name = "saved";
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Name = "Saved";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Saved_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
