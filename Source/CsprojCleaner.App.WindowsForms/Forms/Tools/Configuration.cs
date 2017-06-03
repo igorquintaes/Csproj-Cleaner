@@ -1,4 +1,5 @@
-﻿using CsprojCleaner.App.WindowsForms.ProjectSettings;
+﻿using CsprojCleaner.App.WindowsForms.Contracts;
+using CsprojCleaner.App.WindowsForms.ProjectSettings;
 using CsprojCleaner.App.WindowsForms.Resources;
 using System;
 using System.Collections.Generic;
@@ -14,22 +15,18 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
 {
     public partial class Configuration : Form
     {
-        public static Configuration _instance;
+        private readonly IFormOpener _formOpener;
 
-        public Configuration()
+        public Configuration(IFormOpener formOpener)
         {
+            _formOpener = formOpener;
+
             InitializeComponent();
             LoadTexts();
             ManageCheckboxList();
             ManageLanguageList();
             ManageNonExistentFilesList();
             ManageEvents();
-        }
-
-        public static Configuration GetInstance()
-        {
-            if (_instance == null) _instance = new Configuration();
-            return _instance;
         }
 
         private void LoadTexts()
@@ -46,11 +43,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         private void ManageEvents()
         {
             LanguageSettings.LanguageChanged += new LanguageChangedEventHandler(LoadTexts);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -70,13 +62,8 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             UserSettings.RememberLanguage(language);
             LanguageSettings.ChangeLanguage(language);
 
-            
-            var form = Saved.GetInstance();
-            if (!form.Visible)
-                form.Show();
-            else
-                form.BringToFront();
 
+            _formOpener.ShowModelessForm<Saved>();
             this.Close();
         }
 
@@ -123,11 +110,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
 
             if (NonExistentFilesSettings.Action == Domain.Enums.NonExistentFilesAction.Nothing)
                 this.nonExistentFilesWarning.Visible = false;
-        }
-
-        private void Configuration_FormClosing(object sender, FormClosedEventArgs e)
-        {
-            _instance = null;
         }
 
         private void nonExistentFilesBox_Changed(object sender, EventArgs e)

@@ -45,7 +45,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
             this.sourceCodeIn.Name = "sourceCodeIn";
             this.sourceCodeIn.Size = new System.Drawing.Size(249, 26);
             this.sourceCodeIn.TabIndex = 2;
-            this.sourceCodeIn.Click += new System.EventHandler(this.label1_Click);
             // 
             // linkSource
             // 
@@ -83,7 +82,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Text = "about";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.About_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

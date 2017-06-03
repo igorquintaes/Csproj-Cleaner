@@ -89,6 +89,8 @@
     <Compile Include="Forms\Tools\Saved.Designer.cs">
       <DependentUpon>Saved.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FormOpener.cs" />
+    <Compile Include="Helpers\Contracts\IFormOpener.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectSettings\LanguageSettings.cs" />
     <Compile Include="ProjectSettings\NonExistentFilesSettings.cs" />

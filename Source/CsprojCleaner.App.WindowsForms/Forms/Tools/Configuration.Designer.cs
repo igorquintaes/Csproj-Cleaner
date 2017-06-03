@@ -60,7 +60,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.language.Size = new System.Drawing.Size(58, 13);
             this.language.TabIndex = 1;
             this.language.Text = "Language:";
-            this.language.Click += new System.EventHandler(this.label1_Click);
             // 
             // checkedListBox1
             // 
@@ -149,7 +148,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.MinimizeBox = false;
             this.Name = "Configuration";
             this.Text = "Settings";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Configuration_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

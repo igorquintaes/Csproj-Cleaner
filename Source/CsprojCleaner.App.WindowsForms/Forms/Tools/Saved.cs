@@ -14,18 +14,11 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
 {
     public partial class Saved : Form
     {
-        public static Saved _instance;
-
         public Saved()
         {
             InitializeComponent();
             LoadTexts();
             ManageEvents();
-        }
-        public static Saved GetInstance()
-        {
-            if (_instance == null) _instance = new Saved();
-            return _instance;
         }
 
         private void ManageEvents()
@@ -43,11 +36,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void Saved_FormClosing(object sender, FormClosedEventArgs e)
-        {
-            _instance = null;
         }
     }
 }

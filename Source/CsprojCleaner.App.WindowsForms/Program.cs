@@ -4,6 +4,8 @@ using CsprojCleaner.Core.Services;
 using CsprojCleaner.Domain.Contracts;
 using CsprojCleaner.App.WindowsForms.Forms;
 using SimpleInjector;
+using CsprojCleaner.App.WindowsForms.Contracts;
+using CsprojCleaner.App.WindowsForms.Helpers;
 
 namespace CsprojCleaner.App.WindowsForms
 {
@@ -26,6 +28,7 @@ namespace CsprojCleaner.App.WindowsForms
             _container = new Container();
 
             _container.RegisterSingleton<Main>();
+            _container.RegisterSingleton<IFormOpener, FormOpener>();
             _container.RegisterSingleton<IProjectService, ProjectService>();
             _container.RegisterSingleton<ILogService, LogService>();
             _container.RegisterSingleton<IFolderService, FolderService>();

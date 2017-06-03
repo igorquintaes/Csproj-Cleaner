@@ -66,7 +66,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Tools
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Saved";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Saved_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

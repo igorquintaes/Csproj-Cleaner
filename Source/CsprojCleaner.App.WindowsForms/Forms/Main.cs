@@ -12,6 +12,7 @@ using CsprojCleaner.App.WindowsForms.Extensions;
 using CsprojCleaner.App.WindowsForms.Forms.Help;
 using CsprojCleaner.App.WindowsForms.Forms.Tools;
 using CsprojCleaner.App.WindowsForms.Resources;
+using CsprojCleaner.App.WindowsForms.Contracts;
 
 namespace CsprojCleaner.App.WindowsForms.Forms
 {
@@ -23,14 +24,17 @@ namespace CsprojCleaner.App.WindowsForms.Forms
         private readonly ILogService _logService;
         private readonly IProjectService _projectService;
         private readonly IFolderService _folderService;
+        private readonly IFormOpener _formOpener;
 
         public Main(ILogService logService,
             IProjectService projectService,
-            IFolderService folderService)
+            IFolderService folderService,
+            IFormOpener formOpener)
         {
             _logService = logService;
             _projectService = projectService;
             _folderService = folderService;
+            _formOpener = formOpener;
 
             LanguageSettings.Initialize();
             NonExistentFilesSettings.Initialize();
@@ -213,67 +217,14 @@ namespace CsprojCleaner.App.WindowsForms.Forms
 
         }
 
-        private void LoadingBar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LogDir_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LogoImage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelLogFolder_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProjDir_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelProjectFolder_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void StepsLabelDescription_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void StepsLabelTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Configuration.GetInstance();
-            if (!form.Visible)
-                form.Show();
-            else
-                form.BringToFront();
+            _formOpener.ShowModelessForm<Configuration>();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = About.GetInstance();
-            if (!form.Visible)
-                form.Show();
-            else
-                form.BringToFront();
+            _formOpener.ShowModelessForm<About>();
         }
     }
 }

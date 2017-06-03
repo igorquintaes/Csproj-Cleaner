@@ -41,7 +41,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.ProjDir.Name = "ProjDir";
             this.ProjDir.Size = new System.Drawing.Size(340, 20);
             this.ProjDir.TabIndex = 1;
-            this.ProjDir.TextChanged += new System.EventHandler(this.ProjDir_TextChanged);
             // 
             // LabelLogFolder
             // 
@@ -50,7 +49,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LabelLogFolder.Name = "LabelLogFolder";
             this.LabelLogFolder.Size = new System.Drawing.Size(0, 13);
             this.LabelLogFolder.TabIndex = 1;
-            this.LabelLogFolder.Click += new System.EventHandler(this.LabelLogFolder_Click);
             // 
             // StepsLabelTitle
             // 
@@ -60,7 +58,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.StepsLabelTitle.Name = "StepsLabelTitle";
             this.StepsLabelTitle.Size = new System.Drawing.Size(0, 13);
             this.StepsLabelTitle.TabIndex = 2;
-            this.StepsLabelTitle.Click += new System.EventHandler(this.StepsLabelTitle_Click);
             // 
             // StepsLabelDescription
             // 
@@ -70,7 +67,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.StepsLabelDescription.Name = "StepsLabelDescription";
             this.StepsLabelDescription.Size = new System.Drawing.Size(0, 13);
             this.StepsLabelDescription.TabIndex = 2;
-            this.StepsLabelDescription.Click += new System.EventHandler(this.StepsLabelDescription_Click);
             // 
             // CleanButton
             // 
@@ -89,7 +85,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LogDir.Name = "LogDir";
             this.LogDir.Size = new System.Drawing.Size(340, 20);
             this.LogDir.TabIndex = 3;
-            this.LogDir.TextChanged += new System.EventHandler(this.LogDir_TextChanged);
             // 
             // LabelProjectFolder
             // 
@@ -98,7 +93,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LabelProjectFolder.Name = "LabelProjectFolder";
             this.LabelProjectFolder.Size = new System.Drawing.Size(142, 13);
             this.LabelProjectFolder.TabIndex = 1;
-            this.LabelProjectFolder.Click += new System.EventHandler(this.LabelProjectFolder_Click);
             // 
             // LogoImage
             // 
@@ -108,7 +102,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LogoImage.Size = new System.Drawing.Size(120, 111);
             this.LogoImage.TabIndex = 4;
             this.LogoImage.TabStop = false;
-            this.LogoImage.Click += new System.EventHandler(this.LogoImage_Click);
             // 
             // LoadCsprojButton
             // 
@@ -136,7 +129,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.LoadingBar.Name = "LoadingBar";
             this.LoadingBar.Size = new System.Drawing.Size(120, 21);
             this.LoadingBar.TabIndex = 6;
-            this.LoadingBar.Click += new System.EventHandler(this.LoadingBar_Click);
             // 
             // menuStripOptions
             // 
@@ -206,7 +198,6 @@ namespace CsprojCleaner.App.WindowsForms.Forms
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Project Cleaner";
-            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LogoImage)).EndInit();
             this.menuStripOptions.ResumeLayout(false);
             this.menuStripOptions.PerformLayout();
