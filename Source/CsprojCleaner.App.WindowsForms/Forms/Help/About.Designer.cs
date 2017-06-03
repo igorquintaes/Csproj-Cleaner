@@ -72,7 +72,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
             // 
             this.sourceCodeIn.Text = Language.AboutSourceCodeIn;
             this.closeBtn.Text = Language.Close;
-            this.Name = Language.About;
+            this.Text = Language.About;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 126);

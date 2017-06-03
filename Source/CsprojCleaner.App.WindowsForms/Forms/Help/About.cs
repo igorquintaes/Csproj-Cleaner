@@ -38,7 +38,7 @@ namespace CsprojCleaner.App.WindowsForms.Forms.Help
         {
             this.sourceCodeIn.Text = Language.AboutSourceCodeIn;
             this.closeBtn.Text = Language.Close;
-            this.Name = Language.About;
+            this.Text = Language.About;
         }
 
         private void label1_Click(object sender, EventArgs e)
